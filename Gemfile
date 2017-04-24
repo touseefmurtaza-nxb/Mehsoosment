@@ -46,10 +46,10 @@ group :development do
   # gem 'letter_opener'
   gem 'annotate'
   # Deployment gems
-  # gem 'capistrano', '~> 3.4.0'
-  # gem 'capistrano-rails', '~> 1.1.2'
-  # gem 'capistrano-rbenv', '~> 2.0.2'
-  # gem 'capistrano-bundler', '~> 1.1.3'
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-rails', '~> 1.1.2'
+  gem 'capistrano-rbenv', '~> 2.0.2'
+  gem 'capistrano-bundler', '~> 1.1.3'
 
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

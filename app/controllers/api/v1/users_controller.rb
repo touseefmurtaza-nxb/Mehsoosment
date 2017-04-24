@@ -11,7 +11,6 @@ module Api
           phone_number = params[:phone_number].sub(/^./, '+92')
           @user = User.find_or_create_by(phone_number: phone_number)
           user_registration(@user)
-          binding.pry
           if @user
             render :json => {success:"true", message:"", data:{uuid:@user.uuid}, status:200}
           else
