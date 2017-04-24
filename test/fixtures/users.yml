@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id           :integer          not null, primary key
+#  phone_number :string
+#  pin          :string
+#  verified     :boolean
+#  uuid         :string
+#  expires_at   :datetime
+#  f_name       :string
+#  l_name       :string
+#  email        :string
+#  notification :boolean          default("true")
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phone_number: MyString
+  pin: MyString
+  verified: false
+  uuid: MyString
+  expires_at: 2017-04-20 18:37:30
+  f_name: MyString
+  l_name: MyString
+  email: MyString
+  notification: false
+
+two:
+  phone_number: MyString
+  pin: MyString
+  verified: false
+  uuid: MyString
+  expires_at: 2017-04-20 18:37:30
+  f_name: MyString
+  l_name: MyString
+  email: MyString
+  notification: false

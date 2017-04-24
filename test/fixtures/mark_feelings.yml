@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: mark_feelings
+#
+#  id         :integer          not null, primary key
+#  latitude   :float
+#  longitude  :float
+#  user_id    :integer
+#  mark_type  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  latitude: 1.5
+  longitude: 1.5
+  user_id: 1
+  mark_type: 1
+
+two:
+  latitude: 1.5
+  longitude: 1.5
+  user_id: 1
+  mark_type: 1
