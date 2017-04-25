@@ -16,6 +16,8 @@ module Api
           else
             render :json => {success:"false", message:"", data:{}, status:400}
           end
+        else
+          render :json => {success:"false", message:"", data:{}, status:400}
         end
       end
 
