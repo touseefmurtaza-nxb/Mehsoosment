@@ -8,10 +8,10 @@ module Api
       param :latitude, Float, desc: 'User current location latitude', required: true
       param :longitude, Float, desc: 'User current location longitude', required: true
       param :user_id, Integer, desc: 'User id, whose current location is marked', required: true
-      param :ne, Integer, desc: 'North East', required: true
-      param :se, Integer, desc: 'South East', required: true
-      param :nw, Integer, desc: 'North West', required: true
-      param :sw, Integer, desc: 'South West', required: true
+      param :ne, Float, desc: 'North East', required: true
+      param :se, Float, desc: 'South East', required: true
+      param :nw, Float, desc: 'North West', required: true
+      param :sw, Float, desc: 'South West', required: true
       def create
         @location = UserLocation.new(latitude: params[:latitude], longitude: params[:longitude], user_id: params[:user_id])
         if @location.save
