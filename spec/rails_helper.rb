@@ -3,13 +3,14 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'database_cleaner'
-require 'spec_helper'
+require 'rspec/core'
 require 'rspec/rails'
-require 'support/request_spec_helper'
-# require 'support/factory_girl'
+require 'spec_helper'
+# require 'support/request_spec_helper'
 
 ActiveRecord::Migration.maintain_test_schema!
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/factories/**/*.rb')].each { |f| require f }
 
 RSpec.configuration do |config|
   config.include FactoryGirl::Syntax::Methods

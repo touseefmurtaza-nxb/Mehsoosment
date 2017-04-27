@@ -10,7 +10,7 @@ module Api
         if params[:phone_number].present?
           phone_number = params[:phone_number].sub(/^./, '+92')
           @user = User.find_or_create_by(phone_number: phone_number)
-          user_registration(@user)
+          user_registration(@user) unless Rails.env == "test"
           if @user
             render :json => {success:"true", message:"", data:{uuid:@user.uuid}, status:200}
           else
@@ -30,6 +30,42 @@ module Api
         @user = User.find_by(uuid: params[:uuid])
         if @user
           user_verification(@user)
+          if ((@user.verified?) and (!@user.expired?))
+            render :json => {
+                       success:"true",
+                       message:"",
+                       data:
+                       {  user_id:@user.id,
+                          phone_number:@user.phone_number,
+                          first_name:@user.f_name,
+                          last_name:@user.l_name,
+                          email:@user.email,
+                          notification:@user.notification,
+                       },
+                       status:200
+                      }
+          elsif @user.expired?
+            render :json => {
+                        success:"false",
+                        message:"PIN Expired",
+                        data:{},
+                        status:400
+                      }
+          else
+            render :json => {
+                       success:"false",
+                       message:"Invalid PIN",
+                       data:{},
+                       status:400
+                      }
+          end
+        else
+          render :json => {
+                     success:"false",
+                     message:"",
+                     data:{},
+                     status:400
+                    }
         end
       end
 
@@ -42,8 +78,38 @@ module Api
       param :user_id, Integer, desc: 'User id whose settings are going to change', required: true
 
       def update_user
-        @user = User.find(params[:user_id])
-        (@user.update(user_params)) ? (@update = true) : (@update = false)
+        @user = User.where(id: params[:user_id]).first
+        unless @user.nil?
+          if @user.update(user_params)
+            render :json => {
+                       success:"true",
+                       message:"User Setting Updated",
+                       data:
+                           {  user_id: @user.id,
+                              phone_number: @user.phone_number,
+                              first_name: @user.f_name,
+                              last_name: @user.l_name,
+                              email: @user.email,
+                              notification: @user.notification
+                           },
+                       status:200
+                      }
+          else
+            render :json => {
+                       success:"false",
+                       message:"",
+                       data:{},
+                       status:400
+                      }
+          end
+        else
+          render :json => {
+                     success:"false",
+                     message:"",
+                     data:{},
+                     status:404
+                    }
+        end
       end
 
       private

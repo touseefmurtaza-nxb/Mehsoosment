@@ -14,6 +14,25 @@ module Api
           @markups = MarkFeeling.near([@location.latitude,@location.longitude],6)
           @stats = @markups.group_by(&:mark_type).map {|k,v| [MarkFeeling::MARK_TYPE[k], v.length]}
           send_notification(@markups)
+          if @markups
+            render :json => {
+                       success: "true",
+                       message: "Location Saved",
+                       data:{
+                           alert: @alert,
+                           markers: @markups,
+                           stats: @stats
+                       },
+                       status:200
+                   }
+          else
+            render :json => {
+                       success:"false",
+                       message:"Location Didn't Save",
+                       data:{},
+                       status:400
+                   }
+          end
         end
       end
     end
