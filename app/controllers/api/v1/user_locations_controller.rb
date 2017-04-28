@@ -15,8 +15,9 @@ module Api
       def create
         @location = UserLocation.new(latitude: params[:latitude], longitude: params[:longitude], user_id: params[:user_id])
         if @location.save
-          # @markups = MarkFeeling.near([@location.latitude,@location.longitude],6)
-          @markups = MarkFeeling.where(:latitude => params[:ne]..params[:se], :longitude => params[:nw]..params[:sw])
+          p1 = Geokit::LatLng.new(params[:south_west_point].split(",")[0], params[:south_west_point].split(",")[1])
+          p2 = Geokit::LatLng.new(params[:north_east_point].split(",")[0], params[:north_east_point].split(",")[1])
+          @markups = MarkFeeling.in_bounds([p1, p2])
           @stats = @markups.group_by(&:mark_type).map {|k,v| [MarkFeeling::MARK_TYPE[k], v.length]}
           # send_notification(@markups)
           if @markups

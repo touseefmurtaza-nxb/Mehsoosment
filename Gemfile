@@ -16,6 +16,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'twilio-ruby', '~> 4.1.0'
 # Near by locations by google
 gem 'geocoder'
+gem 'geokit-rails'
+gem 'polylines'
 # Push notifications for iOS
 gem 'pushmeup'
 # Push notifications for android

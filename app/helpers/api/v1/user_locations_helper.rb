@@ -29,6 +29,27 @@ module Api
           end
         end
       end
+
+      def find_markers
+        markers_array = []
+        encoded_line = Polylines::Encoder.encode_points([[params[:ne]["0"],params[:ne]["1"]], [params[:nw]["0"],params[:nw]["1"]], [params[:se]["0"],params[:se]["1"]], [params[:sw]["0"],params[:sw]["1"]]])
+        decoded_poly_lines = Polylines::Decoder.decode_polyline(encoded_line)
+        polygon_points_arr = []
+        decoded_poly_lines.each do |path_point|
+          polygon_points_arr << Geokit::LatLng.new(path_point[0], path_point[1])
+        end
+        polygon = Geokit::Polygon.new(polygon_points_arr)
+
+        MarkFeeling.each do |marked_feeling|
+          address = [marked_feeling.latitude, marked_feeling.longitude]
+          latlong_points = Geocoder.coordinates(address)
+          point = Geokit::LatLng.new(latlong_points[0], latlong_points[1])
+          if polygon.contains?(point)
+            markers_array << marked_feeling
+          end
+        end
+      end
+
     end
   end
 end

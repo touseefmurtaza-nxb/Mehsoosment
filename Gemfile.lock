@@ -77,6 +77,10 @@ GEM
       json
     ffi (1.9.18)
     geocoder (1.4.3)
+    geokit (1.11.0)
+    geokit-rails (2.2.0)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     httparty (0.14.0)
@@ -109,6 +113,7 @@ GEM
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     pg (0.18.2)
+    polylines (0.3.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -212,9 +217,11 @@ DEPENDENCIES
   faker
   fcm
   geocoder
+  geokit-rails
   jbuilder (~> 2.5)
   listen (~> 3.0.5)
   pg
+  polylines
   pry-rails
   puma (~> 3.0)
   pushmeup
