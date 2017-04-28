@@ -16,7 +16,9 @@ module Api
           p1 = Geokit::LatLng.new(params[:south_west_point].split(",")[0], params[:south_west_point].split(",")[1])
           p2 = Geokit::LatLng.new(params[:north_east_point].split(",")[0], params[:north_east_point].split(",")[1])
           @markups = MarkFeeling.in_bounds([p1, p2])
-          @stats = @markups.group_by(&:mark_type).map {|k,v| [MarkFeeling::MARK_TYPE[k], v.length]}
+          # @markups = MarkFeeling.near([@location.latitude,@location.longitude],6)
+          @stats_hash = {}
+          @markups.group_by(&:mark_type).map {|k,v| @stats_hash[MarkFeeling::MARK_TYPE[k]] = v.length}
           # send_notification(@markups)
           if @markups
             render :json => {
@@ -25,7 +27,7 @@ module Api
                        data:{
                            alert: @alert,
                            markers: @markups,
-                           stats: @stats
+                           stats: @stats_hash
                        },
                        status:200
                    }
