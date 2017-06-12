@@ -115,13 +115,13 @@ module Api
       # ---------------------------------------- Fetch users already using Mehsoosment App ---------------------------------------------------
       api :POST, '/v1/users/registered_contacts', 'Fetch users already using Mehsoosment App'
       param "contacts", Array, desc: 'Contact List with Name and Number like contacts = [{contactName:"Khawar", phoneNumbers:["+923041758416", "03004455990"]}]', required: true
-      param "phone_number", string, desc: 'Own Phone Number', required: true
+      param "uuid", String, desc: 'User uuid', required: true
 
       def get_registered_contacts
         hsh = {}
         arr = []
-        own_number = params[:phone_number]
-        own_number = number_format(own_number)
+        user = User.find_by(uuid: params[:uuid])
+        own_number = user.phone_number
         contacts = JSON.parse params[:contacts]
         verified_users = User.verified.pluck(:phone_number)
         contacts.each do |contact|
