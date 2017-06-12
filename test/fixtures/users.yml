@@ -14,6 +14,7 @@
 #  notification :boolean          default("true")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  distance     :float            default("20.0")
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

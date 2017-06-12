@@ -14,18 +14,26 @@
 #  notification :boolean          default("true")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  distance     :float            default("20.0")
 #
 
 class User < ApplicationRecord
   require 'securerandom'
 
   # --------------------- model association ---------------------
+  has_many :mark_dangers, dependent: :destroy
   has_many :mark_feelings, dependent: :destroy
   has_many :user_locations, dependent: :destroy
+  has_many :user_camera_locations, dependent: :destroy
   has_one :device, dependent: :destroy
+  has_many :statuses, dependent: :destroy
 
   # --------------------- validations ---------------------
   validates_presence_of :phone_number
+
+  # --------------------- scope ---------------------
+  scope :verified, -> { where(verified: true) }
+
 
   # --------------------- model Methods ---------------------
   def generate_pin

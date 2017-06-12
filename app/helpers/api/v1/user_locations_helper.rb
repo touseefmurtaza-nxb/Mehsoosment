@@ -4,12 +4,12 @@ module Api
 
       def send_notification(markups)
         all_markers = markups
-        user_markers = MarkFeeling.where(:user_id => @location.user.id)
+        user_markers = MarkDanger.where(:user_id => @location.user.id)
         other_markers = all_markers - user_markers
         unless other_markers.empty?
           marker = other_markers.first
           distance = marker.distance.round(3)
-          mark_type = MarkFeeling::MARK_TYPE[marker.mark_type]
+          mark_type = MarkDanger::MARK_TYPE[marker.mark_type]
           device_token = @location.user.device.device_token
           registration_ids = []
           registration_ids << device_token

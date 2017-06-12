@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::API
-  # include Response
-  # include ExceptionHandler
+  before_filter :grant_params
+
+  def grant_params
+    params.permit!
+  end
 end

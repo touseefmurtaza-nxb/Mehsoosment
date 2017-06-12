@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+ruby '2.2.6'
 gem 'rails', '~> 5.0.2'
 # Postgresql database
 gem 'pg'
@@ -26,11 +26,12 @@ gem 'fcm'
 # gem 'exception_notification'
 # Api's Documentations
 gem 'apipie-rails'
+# Image upload
+gem 'paperclip', "~> 5.0.0"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.0'
-  # gem "rspec-rails", require: "rspec/rails"
   gem 'byebug', platform: :mri
 end
 
