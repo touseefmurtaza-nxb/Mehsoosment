@@ -14,9 +14,9 @@ module Api
           registration_ids = []
           registration_ids << device_token
           if (distance < 0.009)
-            @alert = "There is a #{mark_type} person."
+            @alert = "You are on #{mark_type} place."
           else
-            @alert = "There is a #{mark_type} person #{distance} miles away from you."
+            @alert = "You are #{distance} miles away from #{mark_type}."
           end
           if @location.user.allow_notifications?
             if @location.user.device.device_type.eql?("android")
