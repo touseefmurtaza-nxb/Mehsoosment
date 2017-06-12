@@ -115,18 +115,19 @@ module Api
       # ---------------------------------------- Fetch users already using Mehsoosment App ---------------------------------------------------
       api :POST, '/v1/users/registered_contacts', 'Fetch users already using Mehsoosment App'
       param "contacts", Array, desc: 'Contact List with Name and Number like contacts = [{contactName:"Khawar", phoneNumbers:["+923041758416", "03004455990"]}]', required: true
+      param "phone_number", string, desc: 'Own Phone Number', required: true
 
       def get_registered_contacts
         hsh = {}
         arr = []
+        own_number = params[:phone_number]
+        own_number = number_format(own_number)
         contacts = JSON.parse params[:contacts]
         verified_users = User.verified.pluck(:phone_number)
         contacts.each do |contact|
           contact["phoneNumbers"].each do |number|
-            if number[0] == "0"
-              number = number.sub(/^./, '+92')
-            end
-            if verified_users.include? number
+            number = number_format(number)
+            if verified_users.include? number and (own_number != number)
               hsh[:contactName] = contact["contactName"]
               hsh[:phoneNumber] = number
               arr << hsh
@@ -147,6 +148,12 @@ module Api
       end
       def device_params
         params.permit(:device_token, :device_type, :user_id)
+      end
+      def number_format number
+        if number[0] == "0"
+          number = number.sub(/^./, '+92')
+        end
+        return number
       end
     end
   end
