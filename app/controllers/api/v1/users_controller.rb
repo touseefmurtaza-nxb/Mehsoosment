@@ -127,7 +127,7 @@ module Api
               number = number.sub(/^./, '+92')
             end
             if verified_users.include? number
-              hsh[:contactName] = contact[:contactName]
+              hsh[:contactName] = contact["contactName"]
               hsh[:phoneNumber] = number
               arr << hsh
             end
