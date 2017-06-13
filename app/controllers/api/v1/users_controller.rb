@@ -7,8 +7,6 @@ module Api
       # ---------------------------------------- User Registration Through Phone Number --------------------------------
       api :POST, '/v1/users', 'Register User'
       param :phone_number, String, desc: 'User phone number to register with', required: true
-      param :email, String, desc: 'User Email', required: true
-      param :password, String, desc: 'User Password', required: true
       example <<-EOS
       {
           "success": "true",
