@@ -21,11 +21,9 @@ Rails.application.routes.draw do
   apipie
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create], param: :uuid do
-        member do
-          resources :statuses, only: [:create, :update]
-        end
-      end
+      resources :users, only: [:create]
+      post 'users/statuses' => 'statuses#create'
+      post 'users/statuses/:id' => 'statuses#update'
       post 'users/verify' => "users#verify"
       post 'users/update' => "users#update_user", as: :update_user
       post 'users/registered_contacts' => "users#get_registered_contacts", as: :get_registered_contacts

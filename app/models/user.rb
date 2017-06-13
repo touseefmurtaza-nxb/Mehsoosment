@@ -20,7 +20,7 @@
 #
 
 class User < ApplicationRecord
-  has_secure_password
+  # has_secure_password
   require 'securerandom'
 
   # --------------------- model association ---------------------
@@ -44,21 +44,21 @@ class User < ApplicationRecord
     self.uuid ||= SecureRandom.uuid
     self.verified = nil
     self.expires_at = (Time.zone.now + 30.minute)
-    self.save
+    self.save!
   end
   def twilio_client
     Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
   end
   def send_pin
-    begin
+    # begin
     twilio_client.messages.create(
       to: phone_number,
       from: ENV['TWILIO_PHONE_NUMBER'],
       body: "Your PIN is #{pin}"
     )
-    rescue Twilio::REST::RequestError => e
-      puts e.message
-    end
+    # rescue Twilio::REST::RequestError => e
+    #   puts e.message
+    # end
   end
   def verify(entered_pin)
     self.verified = nil

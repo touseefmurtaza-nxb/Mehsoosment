@@ -10,6 +10,18 @@ module Api
       param :user_id, Integer, desc: 'User id, whose current location is marked', required: true
       param :south_west_point, String, desc: 'South West Point comma separated e.g. (31.469111,74.27178)', required: true
       param :north_east_point, String, desc: 'North East Point comma separated e.g. (31.469111,74.27178)', required: true
+      example <<-EOS
+      {
+        "success": "true",
+        "message": "Location Saved",
+        "data": {
+            "alert": null,
+            "markers": [],
+            "stats": {}
+        },
+        "status": 200
+      }
+      EOS
       def create
         @location = UserLocation.new(latitude: params[:latitude], longitude: params[:longitude], user_id: params[:user_id])
         if @location.save
