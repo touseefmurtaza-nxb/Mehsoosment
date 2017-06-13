@@ -28,6 +28,12 @@ gem 'fcm'
 gem 'apipie-rails'
 # Image upload
 gem 'paperclip', "~> 5.0.0"
+# Secure Password
+gem 'bcrypt', '~> 3.1.7'
+# Token Base Authentication
+gem 'jwt'
+# instead of facilitating the connection between the controller and the view, it does the same for the controller and the model
+gem 'simple_command'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'

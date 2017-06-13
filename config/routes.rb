@@ -29,7 +29,8 @@ Rails.application.routes.draw do
       post 'users/verify' => "users#verify"
       post 'users/update' => "users#update_user", as: :update_user
       post 'users/registered_contacts' => "users#get_registered_contacts", as: :get_registered_contacts
-
+      post 'users/authenticate', to: 'authentication#authenticate'
+      
       resources :user_locations, only: [:create]
       resources :mark_feelings, only: [:create]
       resources :user_camera_locations, only: [:create]

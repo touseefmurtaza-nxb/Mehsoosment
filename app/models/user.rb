@@ -2,22 +2,25 @@
 #
 # Table name: users
 #
-#  id           :integer          not null, primary key
-#  phone_number :string
-#  pin          :string
-#  verified     :boolean
-#  uuid         :string
-#  expires_at   :datetime
-#  f_name       :string
-#  l_name       :string
-#  email        :string
-#  notification :boolean          default("true")
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  distance     :float            default("20.0")
+#  id              :integer          not null, primary key
+#  phone_number    :string
+#  pin             :string
+#  verified        :boolean
+#  uuid            :string
+#  expires_at      :datetime
+#  f_name          :string
+#  l_name          :string
+#  email           :string
+#  notification    :boolean          default("true")
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  distance        :float            default("20.0")
+#  name            :string
+#  password_digest :string
 #
 
 class User < ApplicationRecord
+  has_secure_password
   require 'securerandom'
 
   # --------------------- model association ---------------------
@@ -47,15 +50,15 @@ class User < ApplicationRecord
     Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
   end
   def send_pin
-    # begin
+    begin
     twilio_client.messages.create(
       to: phone_number,
       from: ENV['TWILIO_PHONE_NUMBER'],
       body: "Your PIN is #{pin}"
     )
-    # rescue Twilio::REST::RequestError => e
-    #   puts e.message
-    # end
+    rescue Twilio::REST::RequestError => e
+      puts e.message
+    end
   end
   def verify(entered_pin)
     self.verified = nil

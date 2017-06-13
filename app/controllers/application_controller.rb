@@ -1,7 +1,16 @@
 class ApplicationController < ActionController::API
-  before_filter :grant_params
+  before_action :grant_params
+  before_action :authenticate_request
+  attr_reader :current_user
 
   def grant_params
     params.permit!
+  end
+
+  private
+
+  def authenticate_request
+  	@current_user = AuthorizeApiRequest.call(request.headers).result
+  	render json: { error: 'Not Authorized' }, status: 401 unless @current_user
   end
 end

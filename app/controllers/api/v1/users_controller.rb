@@ -1,15 +1,21 @@
 module Api
   module V1
     class UsersController < ApplicationController
+      skip_before_action :authenticate_request, :only => [:create]
       include UsersHelper
 
       # ---------------------------------------- User Registration Through Phone Number --------------------------------
       api :POST, '/v1/users', 'Register User'
       param :phone_number, String, desc: 'User phone number to register with', required: true
+      param :email, String, desc: 'User Email', required: true
+      param :password, String, desc: 'User Password', required: true
       def create
         if params[:phone_number].present?
-          phone_number = params[:phone_number].sub(/^./, '+92')
-          @user = User.find_or_create_by(phone_number: phone_number)
+          phone_number = number = number_format(params[:phone_number])
+          @user = User.find_by(phone_number: phone_number)
+          unless @user
+            @user = User.create!(phone_number: phone_number, email: params[:email], password: params[:password], password_confirmation: params[:password])
+          end
           user_registration(@user) unless Rails.env == "test"
           if @user
             render :json => {success:"true", message:"", data:{uuid:@user.uuid}, status:200}
