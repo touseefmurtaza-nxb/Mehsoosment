@@ -21,11 +21,11 @@
 .idea/workspace.xml
 /.idea*
 /db/schema.rb
+/public/uploads
+/public/
 # Ignore Byebug command history file.
 .byebug_history
-
 # Ignore application configuration
 /config/environment_variables.yml
-
 # Ignore database credentials
 /config/database.yml

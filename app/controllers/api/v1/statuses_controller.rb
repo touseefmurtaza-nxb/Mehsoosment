@@ -3,7 +3,7 @@ module Api
     class StatusesController < ApplicationController
 
       # ---------------------------------------- Create a new Status ---------------------------------------------------
-      api :POST, '/v1/users/statuses', 'Create new status'
+      api :POST, '/v1/statuses', 'Create new status'
       param "uuid", String, desc: 'User uuid, who wants to update status', required: true
       param "status_text", String, desc: 'Text that user wants to update', required: false
       param "image", File, desc: 'Image file to upload', required: false
@@ -49,7 +49,34 @@ module Api
         end
       end
 
-      def update
+      # ---------------------------------------- Delete Status ---------------------------------------------------
+      api :DELETE, '/v1/statuses/:id', 'Destroy Status'
+      param "id", Integer, desc: 'Status ID', required: true
+      example <<-EOS
+      {
+        "success": "true",
+        "message": "Status Destroyed",
+        "data": {},
+        "status": 200
+      }
+      EOS
+      def destroy
+        status = Status.find params[:id]
+        if status.destroy
+          render :json => {
+                     success:"true",
+                     message:"Status Destroyed",
+                     data:{},
+                     status:200
+                 }
+        else
+          render :json => {
+                     success:"false",
+                     message:"",
+                     data:{},
+                     status:400
+                 }
+        end
       end
 
       private
