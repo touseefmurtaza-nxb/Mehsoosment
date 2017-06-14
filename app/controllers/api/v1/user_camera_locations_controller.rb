@@ -107,6 +107,10 @@ module Api
         }
       }
       EOS
+      description <<-EOS
+        == Authentication required
+         Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
+      EOS
       def create
         @location = UserCameraLocation.new(latitude: params[:latitude], longitude: params[:longitude], user_id: params[:user_id])
         if @location.save

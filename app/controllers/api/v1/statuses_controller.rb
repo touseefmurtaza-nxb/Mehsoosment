@@ -29,6 +29,10 @@ module Api
         "status": 200
       }
       EOS
+      description <<-EOS
+        == Authentication required
+         Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
+      EOS
       def create
         user = User.find_by_uuid params[:uuid]
         status = user.statuses.new (status_params)
@@ -59,6 +63,10 @@ module Api
         "data": {},
         "status": 200
       }
+      EOS
+      description <<-EOS
+        == Authentication required
+         Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
       EOS
       def destroy
         status = Status.find params[:id]

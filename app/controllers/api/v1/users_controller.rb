@@ -128,6 +128,10 @@ module Api
           "status": 200
       }
       EOS
+      description <<-EOS
+        == Authentication required
+         Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
+      EOS
       def update_user
         @user = User.where(id: params[:user_id]).first
         unless @user.nil?
@@ -182,7 +186,10 @@ module Api
           "status": 200
       }
       EOS
-
+      description <<-EOS
+        == Authentication required
+         Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
+      EOS
       def get_registered_contacts
         hsh = {}
         arr = []

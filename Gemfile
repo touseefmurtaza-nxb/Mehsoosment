@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 # instead of facilitating the connection between the controller and the view, it does the same for the controller and the model
 gem 'simple_command'
+# Cron Jobs
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'

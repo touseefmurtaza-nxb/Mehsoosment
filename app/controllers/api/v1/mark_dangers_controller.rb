@@ -12,11 +12,15 @@ module Api
         "success": "true",
         "message": "Location Marked",
         "data": {
-            "latitude": 33.253235541,
-            "longitude": 74.27327282603,
-            "mark_type": 4
+        "latitude": 33.253235541,
+        "longitude": 74.27327282603,
+        "mark_type": 4
         }
       }
+      EOS
+      description <<-EOS
+        == Authentication required
+         Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
       EOS
       def create
         @mark_danger = MarkDanger.new(latitude: params[:latitude], longitude: params[:longitude], user_id: params[:user_id], mark_type: params[:mark_type])

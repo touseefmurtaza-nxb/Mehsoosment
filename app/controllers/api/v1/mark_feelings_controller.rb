@@ -20,6 +20,10 @@ module Api
           "status": 200
       }
       EOS
+      description <<-EOS
+        == Authentication required
+         Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
+      EOS
       def create
         @mark_feeling = MarkFeeling.new(latitude: params[:latitude], longitude: params[:longitude], user_id: params[:user_id], mark_type: params[:mark_type])
         if @mark_feeling.save
