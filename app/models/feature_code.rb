@@ -14,7 +14,7 @@ class FeatureCode < ApplicationRecord
 
   def generate_code
     self.code = loop do
-      random_token = SecureRandom.hex(2)
+      random_token = rand(0000..9999).to_s.rjust(4, "0")
       break random_token unless FeatureCode.exists?(code: random_token)
     end
   end
