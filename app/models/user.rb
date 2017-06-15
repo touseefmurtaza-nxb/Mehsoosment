@@ -30,6 +30,7 @@ class User < ApplicationRecord
   has_many :user_camera_locations, dependent: :destroy
   has_one :device, dependent: :destroy
   has_many :statuses, dependent: :destroy
+  has_many :features
 
   # --------------------- validations ---------------------
   validates_presence_of :phone_number

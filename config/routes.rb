@@ -22,8 +22,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:create, :destroy]
       resources :statuses, only: [:create, :destroy]
-      # post 'users/statuses' => 'statuses#create'
-      # DELETE 'users/statuses/:id' => 'statuses#update'
+      resources :feature_codes, only: [:create]
+      post '/apply_code' => "feature_codes#apply_code"
+      post '/users/enabled_features' => "feature_codes#enabled_features"
+
       post 'users/verify' => "users#verify"
       post 'users/update' => "users#update_user", as: :update_user
       post 'users/registered_contacts' => "users#get_registered_contacts", as: :get_registered_contacts
