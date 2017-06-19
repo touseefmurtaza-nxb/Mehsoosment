@@ -32,6 +32,21 @@ module Api
           p1 = Geokit::LatLng.new(params[:south_west_point].split(",")[0], params[:south_west_point].split(",")[1])
           p2 = Geokit::LatLng.new(params[:north_east_point].split(",")[0], params[:north_east_point].split(",")[1])
           @markups = MarkFeeling.in_bounds([p1, p2])
+          mark_feeling_hash = {}
+          markers_array = []
+          @markups.each do |markup|
+            point = Geokit::LatLng.new(params[:latitude], params[:longitude])
+            distance = markup.distance_to point
+            mark_feeling_hash['id'] = markup.id
+            mark_feeling_hash['latitude'] = markup.latitude
+            mark_feeling_hash['longitude'] = markup.longitude
+            mark_feeling_hash['user_id'] = markup.user_id
+            mark_feeling_hash['mark_type'] = markup.mark_type
+            mark_feeling_hash['distance'] = distance
+            mark_feeling_hash['created_at'] = markup.created_at
+            mark_feeling_hash['updated_at'] = markup.updated_at
+            markers_array << mark_feeling_hash
+          end
           # @markups = MarkFeeling.near([@location.latitude,@location.longitude],6)
           @stats_hash = {}
           @markups.group_by(&:mark_type).map {|k,v| @stats_hash[MarkFeeling::MARK_TYPE[k]] = v.length}
@@ -42,7 +57,7 @@ module Api
                        message: "Location Saved",
                        data:{
                            alert: @alert,
-                           markers: @markups,
+                           markers: markers_array,
                            stats: @stats_hash
                        },
                        status:200
