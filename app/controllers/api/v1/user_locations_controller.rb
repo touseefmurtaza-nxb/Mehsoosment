@@ -16,8 +16,123 @@ module Api
         "message": "Location Saved",
         "data": {
             "alert": null,
-            "markers": [],
-            "stats": {}
+            "markers": [
+                {
+                    "id": 9,
+                    "latitude": 32.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 2,
+                    "distance": 181.99381623993563,
+                    "created_at": "2017-04-27T12:10:45.400Z",
+                    "updated_at": "2017-04-27T12:10:45.400Z"
+                },
+                {
+                    "id": 10,
+                    "latitude": 32.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 2,
+                    "distance": 181.99381623993563,
+                    "created_at": "2017-04-27T12:10:46.438Z",
+                    "updated_at": "2017-04-27T12:10:46.438Z"
+                },
+                {
+                    "id": 11,
+                    "latitude": 33.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 3,
+                    "distance": 238.52056167478267,
+                    "created_at": "2017-04-27T12:10:56.273Z",
+                    "updated_at": "2017-04-27T12:10:56.273Z"
+                },
+                {
+                    "id": 20,
+                    "latitude": 33.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 4,
+                    "distance": 238.52056167478267,
+                    "created_at": "2017-04-28T11:50:49.097Z",
+                    "updated_at": "2017-04-28T11:50:49.097Z"
+                },
+                {
+                    "id": 21,
+                    "latitude": 33.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 4,
+                    "distance": 238.52056167478267,
+                    "created_at": "2017-04-28T11:50:52.360Z",
+                    "updated_at": "2017-04-28T11:50:52.360Z"
+                },
+                {
+                    "id": 22,
+                    "latitude": 33.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 4,
+                    "distance": 238.52056167478267,
+                    "created_at": "2017-04-28T11:50:52.927Z",
+                    "updated_at": "2017-04-28T11:50:52.927Z"
+                },
+                {
+                    "id": 23,
+                    "latitude": 33.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 2,
+                    "distance": 238.52056167478267,
+                    "created_at": "2017-04-28T11:50:56.528Z",
+                    "updated_at": "2017-04-28T11:50:56.528Z"
+                },
+                {
+                    "id": 24,
+                    "latitude": 33.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 2,
+                    "distance": 238.52056167478267,
+                    "created_at": "2017-04-28T11:50:56.989Z",
+                    "updated_at": "2017-04-28T11:50:56.989Z"
+                },
+                {
+                    "id": 25,
+                    "latitude": 33.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 3,
+                    "distance": 238.52056167478267,
+                    "created_at": "2017-04-28T11:51:02.419Z",
+                    "updated_at": "2017-04-28T11:51:02.419Z"
+                },
+                {
+                    "id": 26,
+                    "latitude": 33.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 3,
+                    "distance": 238.52056167478267,
+                    "created_at": "2017-04-28T11:51:02.943Z",
+                    "updated_at": "2017-04-28T11:51:02.943Z"
+                },
+                {
+                    "id": 27,
+                    "latitude": 33.25323554,
+                    "longitude": 74.273272826028,
+                    "user_id": 2,
+                    "mark_type": 3,
+                    "distance": 238.52056167478267,
+                    "created_at": "2017-04-28T11:51:03.447Z",
+                    "updated_at": "2017-04-28T11:51:03.447Z"
+                }
+            ],
+            "stats": {
+                "Sad": 4,
+                "Boring": 4,
+                "Angry": 3
+            }
         },
         "status": 200
       }
@@ -32,9 +147,9 @@ module Api
           p1 = Geokit::LatLng.new(params[:south_west_point].split(",")[0], params[:south_west_point].split(",")[1])
           p2 = Geokit::LatLng.new(params[:north_east_point].split(",")[0], params[:north_east_point].split(",")[1])
           @markups = MarkFeeling.in_bounds([p1, p2])
-          mark_feeling_hash = {}
           markers_array = []
           @markups.each do |markup|
+            mark_feeling_hash = {}
             point = Geokit::LatLng.new(params[:latitude], params[:longitude])
             distance = markup.distance_to point
             mark_feeling_hash['id'] = markup.id
