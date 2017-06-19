@@ -206,9 +206,15 @@ module Api
           @markups.each do |markup|
             status_hsh = {}
             status = markup.user.try(:statuses).try(:last)
-            status_hsh['id'] = status.id || ""
-            status_hsh['status_text'] = status.status_text || ""
-            status_hsh['image_url'] = status.image.url || ""
+            if status
+              status_hsh['id'] = status.id
+              status_hsh['status_text'] = status.status_text
+              status_hsh['image_url'] = status.image.url
+            else
+              status_hsh['id'] = ""
+              status_hsh['status_text'] = ""
+              status_hsh['image_url'] = ""
+            end
             mark_feeling_hash = {}
             point = Geokit::LatLng.new(params[:latitude], params[:longitude])
             distance = markup.distance_to point
