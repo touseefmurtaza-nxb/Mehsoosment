@@ -13,95 +13,119 @@ module Api
         "success": "true",
         "message": "Location Saved",
         "data": {
-            "alert": "You are on Challan place.",
+            "alert": "",
             "markers": [
                 {
-                    "id": 4,
-                    "latitude": 33.253235541,
-                    "longitude": 74.27327282603,
+                    "id": 23,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272016,
+                    "user_id": 2,
+                    "mark_type": 4,
+                    "created_at": "2017-06-19T10:38:31.524Z",
+                    "updated_at": "2017-06-19T10:38:31.524Z",
+                    "distance": 0,
+                    "bearing": "0.0",
+                    "user_status": {
+                        "id=": 16,
+                        "status_text=": "testing",
+                        "image_url=": ""
+                    }
+                },
+                {
+                    "id": 24,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272016,
+                    "user_id": 2,
+                    "mark_type": 1,
+                    "created_at": "2017-06-19T10:38:34.774Z",
+                    "updated_at": "2017-06-19T10:38:34.774Z",
+                    "distance": 0,
+                    "bearing": "0.0",
+                    "user_status": {
+                        "id=": 16,
+                        "status_text=": "testing",
+                        "image_url=": ""
+                    }
+                },
+                {
+                    "id": 25,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272016,
+                    "user_id": 2,
+                    "mark_type": 3,
+                    "created_at": "2017-06-19T10:38:38.011Z",
+                    "updated_at": "2017-06-19T10:38:38.011Z",
+                    "distance": 0,
+                    "bearing": "0.0",
+                    "user_status": {
+                        "id=": 16,
+                        "status_text=": "testing",
+                        "image_url=": ""
+                    }
+                },
+                {
+                    "id": 26,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272016,
                     "user_id": 3,
+                    "mark_type": 3,
+                    "created_at": "2017-06-19T10:39:20.703Z",
+                    "updated_at": "2017-06-19T10:39:20.703Z",
+                    "distance": 0,
+                    "bearing": "0.0",
+                    "user_status": {
+                        "id=": "",
+                        "status_text=": "",
+                        "image_url=": ""
+                    }
+                },
+                {
+                    "id": 22,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272026,
+                    "user_id": 2,
+                    "mark_type": 4,
+                    "created_at": "2017-06-19T10:38:26.897Z",
+                    "updated_at": "2017-06-19T10:38:26.897Z",
+                    "distance": 5.96832633730437e-7,
+                    "bearing": "89.99999997945",
+                    "user_status": {
+                        "id=": 16,
+                        "status_text=": "testing",
+                        "image_url=": ""
+                    }
+                },
+                {
+                    "id": 21,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272826,
+                    "user_id": 2,
+                    "mark_type": 3,
+                    "created_at": "2017-06-19T10:38:19.533Z",
+                    "updated_at": "2017-06-19T10:38:19.533Z",
+                    "distance": 0.0000483434730174405,
+                    "bearing": "89.99999997945",
+                    "user_status": {
+                        "id=": 16,
+                        "status_text=": "testing",
+                        "image_url=": ""
+                    }
+                },
+                {
+                    "id": 20,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272826,
+                    "user_id": 2,
                     "mark_type": 2,
-                    "created_at": "2017-06-12T06:44:18.232Z",
-                    "updated_at": "2017-06-13T12:26:48.382Z",
-                    "distance": 0,
-                    "bearing": "0.0"
-                },
-                {
-                    "id": 7,
-                    "latitude": 33.253235541,
-                    "longitude": 74.27327282603,
-                    "user_id": 2,
-                    "mark_type": null,
-                    "created_at": "2017-06-12T06:46:05.304Z",
-                    "updated_at": "2017-06-12T06:46:05.304Z",
-                    "distance": 0,
-                    "bearing": "0.0"
-                },
-                {
-                    "id": 13,
-                    "latitude": 33.253235541,
-                    "longitude": 74.27327282603,
-                    "user_id": 2,
-                    "mark_type": 4,
-                    "created_at": "2017-06-13T11:45:30.181Z",
-                    "updated_at": "2017-06-13T11:45:30.181Z",
-                    "distance": 0,
-                    "bearing": "0.0"
-                },
-                {
-                    "id": 14,
-                    "latitude": 33.253235541,
-                    "longitude": 74.27327282603,
-                    "user_id": 2,
-                    "mark_type": 4,
-                    "created_at": "2017-06-13T11:45:36.140Z",
-                    "updated_at": "2017-06-13T11:45:36.140Z",
-                    "distance": 0,
-                    "bearing": "0.0"
-                },
-                {
-                    "id": 15,
-                    "latitude": 33.253235541,
-                    "longitude": 74.27327282603,
-                    "user_id": 2,
-                    "mark_type": 4,
-                    "created_at": "2017-06-13T11:45:41.019Z",
-                    "updated_at": "2017-06-13T11:45:41.019Z",
-                    "distance": 0,
-                    "bearing": "0.0"
-                },
-                {
-                    "id": 16,
-                    "latitude": 33.253235541,
-                    "longitude": 74.27327282603,
-                    "user_id": 2,
-                    "mark_type": 4,
-                    "created_at": "2017-06-13T11:46:08.359Z",
-                    "updated_at": "2017-06-13T11:46:08.359Z",
-                    "distance": 0,
-                    "bearing": "0.0"
-                },
-                {
-                    "id": 2,
-                    "latitude": 33.25323554,
-                    "longitude": 74.273272826028,
-                    "user_id": 2,
-                    "mark_type": 3,
-                    "created_at": "2017-06-12T06:05:49.998Z",
-                    "updated_at": "2017-06-12T06:05:49.998Z",
-                    "distance": 6.90936709256038e-8,
-                    "bearing": "180.113990556052"
-                },
-                {
-                    "id": 1,
-                    "latitude": 33.25323554,
-                    "longitude": 74.273272826028,
-                    "user_id": 2,
-                    "mark_type": 3,
-                    "created_at": "2017-06-12T06:05:47.171Z",
-                    "updated_at": "2017-06-12T06:05:47.171Z",
-                    "distance": 6.90936709256038e-8,
-                    "bearing": "180.113990556052"
+                    "created_at": "2017-06-19T10:33:33.864Z",
+                    "updated_at": "2017-06-19T10:33:33.864Z",
+                    "distance": 0.0000483434730174405,
+                    "bearing": "89.99999997945",
+                    "user_status": {
+                        "id=": 16,
+                        "status_text=": "testing",
+                        "image_url=": ""
+                    }
                 }
             ]
         }

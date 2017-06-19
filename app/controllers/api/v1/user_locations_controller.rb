@@ -25,7 +25,12 @@ module Api
                     "mark_type": 2,
                     "distance": 181.99381623993563,
                     "created_at": "2017-04-27T12:10:45.400Z",
-                    "updated_at": "2017-04-27T12:10:45.400Z"
+                    "updated_at": "2017-04-27T12:10:45.400Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 10,
@@ -35,7 +40,12 @@ module Api
                     "mark_type": 2,
                     "distance": 181.99381623993563,
                     "created_at": "2017-04-27T12:10:46.438Z",
-                    "updated_at": "2017-04-27T12:10:46.438Z"
+                    "updated_at": "2017-04-27T12:10:46.438Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 11,
@@ -45,7 +55,12 @@ module Api
                     "mark_type": 3,
                     "distance": 238.52056167478267,
                     "created_at": "2017-04-27T12:10:56.273Z",
-                    "updated_at": "2017-04-27T12:10:56.273Z"
+                    "updated_at": "2017-04-27T12:10:56.273Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 20,
@@ -55,7 +70,12 @@ module Api
                     "mark_type": 4,
                     "distance": 238.52056167478267,
                     "created_at": "2017-04-28T11:50:49.097Z",
-                    "updated_at": "2017-04-28T11:50:49.097Z"
+                    "updated_at": "2017-04-28T11:50:49.097Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 21,
@@ -65,7 +85,12 @@ module Api
                     "mark_type": 4,
                     "distance": 238.52056167478267,
                     "created_at": "2017-04-28T11:50:52.360Z",
-                    "updated_at": "2017-04-28T11:50:52.360Z"
+                    "updated_at": "2017-04-28T11:50:52.360Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 22,
@@ -75,7 +100,12 @@ module Api
                     "mark_type": 4,
                     "distance": 238.52056167478267,
                     "created_at": "2017-04-28T11:50:52.927Z",
-                    "updated_at": "2017-04-28T11:50:52.927Z"
+                    "updated_at": "2017-04-28T11:50:52.927Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 23,
@@ -85,7 +115,12 @@ module Api
                     "mark_type": 2,
                     "distance": 238.52056167478267,
                     "created_at": "2017-04-28T11:50:56.528Z",
-                    "updated_at": "2017-04-28T11:50:56.528Z"
+                    "updated_at": "2017-04-28T11:50:56.528Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 24,
@@ -95,7 +130,12 @@ module Api
                     "mark_type": 2,
                     "distance": 238.52056167478267,
                     "created_at": "2017-04-28T11:50:56.989Z",
-                    "updated_at": "2017-04-28T11:50:56.989Z"
+                    "updated_at": "2017-04-28T11:50:56.989Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 25,
@@ -105,7 +145,12 @@ module Api
                     "mark_type": 3,
                     "distance": 238.52056167478267,
                     "created_at": "2017-04-28T11:51:02.419Z",
-                    "updated_at": "2017-04-28T11:51:02.419Z"
+                    "updated_at": "2017-04-28T11:51:02.419Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 26,
@@ -115,7 +160,12 @@ module Api
                     "mark_type": 3,
                     "distance": 238.52056167478267,
                     "created_at": "2017-04-28T11:51:02.943Z",
-                    "updated_at": "2017-04-28T11:51:02.943Z"
+                    "updated_at": "2017-04-28T11:51:02.943Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 },
                 {
                     "id": 27,
@@ -125,7 +175,12 @@ module Api
                     "mark_type": 3,
                     "distance": 238.52056167478267,
                     "created_at": "2017-04-28T11:51:03.447Z",
-                    "updated_at": "2017-04-28T11:51:03.447Z"
+                    "updated_at": "2017-04-28T11:51:03.447Z",
+                    "user_status": {
+                        "id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
+                    }
                 }
             ],
             "stats": {
@@ -149,20 +204,26 @@ module Api
           @markups = MarkFeeling.in_bounds([p1, p2])
           markers_array = []
           @markups.each do |markup|
+            status_hsh = {}
+            status = markup.user.try(:statuses).try(:last)
+            status_hsh['id'] = status.id || ""
+            status_hsh['status_text'] = status.status_text || ""
+            status_hsh['image_url'] = status.image.url || ""
             mark_feeling_hash = {}
             point = Geokit::LatLng.new(params[:latitude], params[:longitude])
             distance = markup.distance_to point
-            mark_feeling_hash['id'] = markup.id
-            mark_feeling_hash['latitude'] = markup.latitude
-            mark_feeling_hash['longitude'] = markup.longitude
-            mark_feeling_hash['user_id'] = markup.user_id
-            mark_feeling_hash['mark_type'] = markup.mark_type
-            mark_feeling_hash['distance'] = distance
-            mark_feeling_hash['created_at'] = markup.created_at
-            mark_feeling_hash['updated_at'] = markup.updated_at
+            mark_feeling_hash['id']             = markup.id
+            mark_feeling_hash['latitude']       = markup.latitude
+            mark_feeling_hash['longitude']      = markup.longitude
+            mark_feeling_hash['user_id']        = markup.user_id
+            mark_feeling_hash['mark_type']      = markup.mark_type
+            mark_feeling_hash['distance']       = distance
+            mark_feeling_hash['created_at']     = markup.created_at
+            mark_feeling_hash['updated_at']     = markup.updated_at
+            mark_feeling_hash['user_status']    = status_hsh
             markers_array << mark_feeling_hash
           end
-          # @markups = MarkFeeling.near([@location.latitude,@location.longitude],6)
+          # @markups = MarkFeeling.near([@loca  tion.latitude,@location.longitude],6)
           @stats_hash = {}
           @markups.group_by(&:mark_type).map {|k,v| @stats_hash[MarkFeeling::MARK_TYPE[k]] = v.length}
           # send_notification(@markups)
