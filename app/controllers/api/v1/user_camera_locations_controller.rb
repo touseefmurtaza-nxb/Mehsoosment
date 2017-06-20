@@ -26,9 +26,9 @@ module Api
                     "distance": 0,
                     "bearing": "0.0",
                     "user_status": {
-                        "id=": 16,
-                        "status_text=": "testing",
-                        "image_url=": ""
+                        "status_id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
                     }
                 },
                 {
@@ -42,9 +42,9 @@ module Api
                     "distance": 0,
                     "bearing": "0.0",
                     "user_status": {
-                        "id=": 16,
-                        "status_text=": "testing",
-                        "image_url=": ""
+                        "status_id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
                     }
                 },
                 {
@@ -58,9 +58,9 @@ module Api
                     "distance": 0,
                     "bearing": "0.0",
                     "user_status": {
-                        "id=": 16,
-                        "status_text=": "testing",
-                        "image_url=": ""
+                        "status_id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
                     }
                 },
                 {
@@ -74,9 +74,9 @@ module Api
                     "distance": 0,
                     "bearing": "0.0",
                     "user_status": {
-                        "id=": "",
-                        "status_text=": "",
-                        "image_url=": ""
+                        "status_id": "",
+                        "status_text": "",
+                        "image_url": ""
                     }
                 },
                 {
@@ -90,9 +90,9 @@ module Api
                     "distance": 5.96832633730437e-7,
                     "bearing": "89.99999997945",
                     "user_status": {
-                        "id=": 16,
-                        "status_text=": "testing",
-                        "image_url=": ""
+                        "status_id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
                     }
                 },
                 {
@@ -106,9 +106,9 @@ module Api
                     "distance": 0.0000483434730174405,
                     "bearing": "89.99999997945",
                     "user_status": {
-                        "id=": 16,
-                        "status_text=": "testing",
-                        "image_url=": ""
+                        "status_id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
                     }
                 },
                 {
@@ -122,9 +122,9 @@ module Api
                     "distance": 0.0000483434730174405,
                     "bearing": "89.99999997945",
                     "user_status": {
-                        "id=": 16,
-                        "status_text=": "testing",
-                        "image_url=": ""
+                        "status_id": 16,
+                        "status_text": "testing",
+                        "image_url": ""
                     }
                 }
             ]

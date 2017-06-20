@@ -13,13 +13,13 @@ if @markups
       json.user_status do
         status = markup.user.try(:statuses).try(:last)
         if status
-          json.id = status.id
-          json.status_text = status.status_text
-          json.image_url = status.image.url
+          json.status_id status.id
+          json.status_text status.status_text
+          json.image_url status.image.url
         else
-          json.id = ""
-          json.status_text = ""
-          json.image_url = ""
+          json.status_id ""
+          json.status_text ""
+          json.image_url ""
         end
       end
     end
