@@ -12,19 +12,13 @@ module Api
         "success": "true",
         "message": "Status Saved",
         "data": {
-            "status": {
-                "id": 11,
-                "status_text": "Hello friends",
-                "user_id": 2,
-                "expires_at": "2017-06-14T12:54:10.574Z",
-                "created_at": "2017-06-13T12:54:10.574Z",
-                "updated_at": "2017-06-13T12:54:10.574Z",
-                "image_file_name": "school-house-images-7ianLEjiA.jpeg",
-                "image_content_type": "image/jpeg",
-                "image_file_size": 28083,
-                "image_updated_at": "2017-06-13T12:54:10.465Z"
-            },
-            "image_url": "/system/statuses/images/000/000/011/original/school-house-images-7ianLEjiA.jpeg?1497358450"
+            "status_id": 22,
+            "status_text": "Hello, How Are You Doing?",
+            "user_id": 2,
+            "uuid": "64f0e0c5-20f4-4071-a31b-e0b8ca69a938",
+            "expires_at": "2017-06-22T11:27:33.839Z",
+            "created_at": "2017-06-21T11:27:33.839Z",
+            "image_url": "/system/statuses/images/000/000/022/original/18238194_1566992733334257_8603697286439955519_o.jpg?1498044453"
         },
         "status": 200
       }
@@ -40,7 +34,15 @@ module Api
           render :json => {
                  success:"true",
                  message:"Status Saved",
-                 data:{ status: status, image_url: status.image.url },
+                 data:{
+                     status_id: status.id,
+                     status_text: status.status_text,
+                     user_id: status.user.id,
+                     uuid: status.user.uuid,
+                     expires_at: status.expires_at,
+                     created_at: status.created_at,
+                     image_url: status.image.url
+                 },
                  status:200
           }
         else
