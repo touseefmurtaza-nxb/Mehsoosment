@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      skip_before_action :authenticate_request, :only => [:create, :verify]
+      skip_before_action :authenticate_request, :only => [:create, :verify, :refresh_token]
       include UsersHelper
 
       # ---------------------------------------- User Registration Through Phone Number --------------------------------
@@ -211,6 +211,47 @@ module Api
                    success:"true",
                    message:"",
                    data:{:registered_users=> arr},
+                   status:200
+               }
+      end
+
+      # ---------------------------------------- Refresh Token ---------------------------------------------------
+      api :POST, '/v1/users/refresh_token', 'Refresh Token for user Authorization'
+      param "uuid", String, desc: 'User uuid', required: true
+      example <<-EOS
+      {
+        "success": "true",
+        "message": "Token Refreshed",
+        "data": {
+            "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE0OTgxMTY2OTV9.1L8D8ryz54Qouo_gkeuGgbXwbg4xWnQ9cMTcAIUGLf4",
+            "user_id": 2,
+            "uuid": "64f0e0c5-20f4-4071-a31b-e0b8ca69a938",
+            "phone_number": "+923219346933",
+            "first_name": "ali",
+            "last_name": "imran",
+            "email": "example@mail.com",
+            "notification": false
+        },
+        "status": 200
+      }
+      EOS
+      def refresh_token
+        @user = User.find_by(uuid: params[:uuid])
+        token = JsonWebToken.encode(user_id: @user.id)
+        render :json => {
+                   success:"true",
+                   message:"Token Refresed",
+                   data:
+                       {
+                           auth_token:token,
+                           user_id:@user.id,
+                           uuid:@user.uuid,
+                           phone_number:@user.phone_number,
+                           first_name:@user.f_name,
+                           last_name:@user.l_name,
+                           email:@user.email,
+                           notification:@user.notification,
+                       },
                    status:200
                }
       end

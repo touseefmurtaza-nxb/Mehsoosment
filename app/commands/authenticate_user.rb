@@ -1,11 +1,6 @@
 class AuthenticateUser
 	prepend SimpleCommand
 
-	# def initialize(email, password)
-	# 	@email = email
-	# 	@password = password
-	# end
-
 	def initialize(uuid,pin)
 		@uuid = uuid
 		@pin = pin
@@ -16,17 +11,7 @@ class AuthenticateUser
 	end
 
 	private
-
-	# attr_accessor :email, :password
 	attr_accessor :uuid, :pin
-
-	# def user
-	# 	user = User.find_by_email(email)
-	# 	return user if user && user.authenticate(password)
-
-	# 	errors.add :user_authentication, 'invalid credentials'
-	# 	nil
-	# end
 
 	def user
 		user = User.find_by_uuid(uuid)
@@ -35,4 +20,5 @@ class AuthenticateUser
 		errors.add :user_authentication, 'invalid credentials'
 		nil
 	end
+
 end

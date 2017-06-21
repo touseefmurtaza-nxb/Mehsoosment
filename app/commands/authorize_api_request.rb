@@ -14,8 +14,14 @@ class AuthorizeApiRequest
 	attr_reader :headers
 
 	def user
-		@user ||= User.find(decoded_auth_token[:user_id]) if decoded_auth_token
-		@user || errors.add(:token, 'Invalid token') && nil
+		if (decoded_auth_token.try(:message) == "Signature has expired")
+			return 'Expired' # Token Expired
+		elsif (decoded_auth_token.try(:message) == "Signature verification raised")
+			return 'Invalid' # Invalid Token
+		else
+			@user ||= User.find(decoded_auth_token[:user_id]) if decoded_auth_token
+			@user || errors.add(:token, 'Invalid token') && nil
+		end
 	end
 
 	def decoded_auth_token

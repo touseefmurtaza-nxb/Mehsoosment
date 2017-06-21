@@ -11,6 +11,12 @@ class ApplicationController < ActionController::API
 
   def authenticate_request
   	@current_user = AuthorizeApiRequest.call(request.headers).result
-  	render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+    if @current_user == 'Expired'
+      render json: { error: 'Token Expired' }, status: 401
+    elsif @current_user == 'Invalid'
+      render json: { error: 'Invalid Token' }, status: 401
+    elsif @current_user.nil?
+      render json: { error: 'Not Authorized' }, status: 401
+    end
   end
 end
