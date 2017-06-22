@@ -30,7 +30,7 @@ module Api
       def create
         user = User.find_by_uuid params[:uuid]
         status = user.statuses.new (status_params)
-        if status.save
+        if status.save!
           render :json => {
                  success:"true",
                  message:"Status Saved",
@@ -41,7 +41,7 @@ module Api
                      uuid: status.user.uuid,
                      expires_at: status.expires_at,
                      created_at: status.created_at,
-                     image_url: status.image.url
+                     image_url: "http://mehsoosment.vteamslabs.com" + status.image.url
                  },
                  status:200
           }
