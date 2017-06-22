@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       post 'messages/send_message', to: 'messages#send_message'
       post 'messages/chats', to: 'messages#chats'
       post 'messages/room_messages', to: 'messages#room_messages'
+      post 'messages/room', to: 'messages#room'
 
       resources :user_locations, only: [:create]
       resources :mark_feelings, only: [:create]

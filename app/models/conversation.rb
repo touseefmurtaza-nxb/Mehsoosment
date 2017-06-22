@@ -25,6 +25,11 @@ class Conversation < ApplicationRecord
       conversation.create_reverse_connection(room)
     end
 
+    def get_conversation(user,user_id)
+      conversation = user.conversations.find_by_connection_id(user_id)
+      conversation || Conversation.create_chat_room(user,user.id)
+    end
+
   end
 
 

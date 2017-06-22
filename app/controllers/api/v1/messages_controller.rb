@@ -185,6 +185,28 @@ module Api
         render json: room.as_json(include: {messages: {include: [:sender,:receiver]}})
       end
 
+      # ---------------------------------------- Create Conversation ---------------------------------------------------
+      api :POST, '/v1/messages/room', 'Create Conversation'
+      param :phone_number, String, desc: 'Receiver Phone Number with proper format (i.e. +923211111111)',required: true
+      param :uuid, String, desc: 'Logged in User uuid',required: true
+      example <<-EOS
+      {
+        "room_id": 1
+      }
+      EOS
+      description <<-EOS
+        == Append room-
+         room id is returned in json, you have to append room-.
+      EOS
+      def room
+        user = User.find_by_phone_number(params[:phone_number])
+        logged_in_user = User.find_by_uuid(params[:uuid])
+        conversation = Conversation.get_conversation(logged_in_user,user.id)
+        render json: {
+                   room_id: conversation.room_id
+               }
+      end
+
     end
   end
 end
