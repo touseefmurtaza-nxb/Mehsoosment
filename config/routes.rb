@@ -31,7 +31,11 @@ Rails.application.routes.draw do
       post 'users/registered_contacts' => "users#get_registered_contacts", as: :get_registered_contacts
       post '/users/refresh_token' => "users#refresh_token"
       post 'users/authenticate', to: 'authentication#authenticate'
-      
+
+      post 'messages/send_message', to: 'messages#send_message'
+      post 'messages/chats', to: 'messages#chats'
+      post 'messages/room_messages', to: 'messages#room_messages'
+
       resources :user_locations, only: [:create]
       resources :mark_feelings, only: [:create]
       resources :user_camera_locations, only: [:create]

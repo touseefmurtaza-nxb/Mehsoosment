@@ -195,14 +195,17 @@ module Api
         arr = []
         user = User.find_by(uuid: params[:uuid])
         own_number = user.phone_number
+        # binding.pry
         contacts = JSON.parse params[:contacts]
         verified_users = User.verified.pluck(:phone_number)
         contacts.each do |contact|
           contact["phoneNumbers"].each do |number|
+            number = number.gsub(/\s+/, "")
             number = number_format(number)
             if verified_users.include? number and (own_number != number)
               hsh[:contactName] = contact["contactName"]
               hsh[:phoneNumber] = number
+              hsh[:room] = User.get_room_key(own_number,number)
               arr << hsh
             end
           end
@@ -272,3 +275,4 @@ module Api
     end
   end
 end
+
