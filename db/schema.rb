@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420140931) do
+ActiveRecord::Schema.define(version: 20170622114254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.integer  "connection_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  end
 
   create_table "devices", force: :cascade do |t|
     t.string   "device_token"
@@ -23,11 +46,75 @@ ActiveRecord::Schema.define(version: 20170420140931) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "feature_codes", force: :cascade do |t|
+    t.string   "code"
+    t.integer  "feature_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mark_dangers", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "user_id"
+    t.integer  "mark_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "mark_feelings", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
     t.integer  "mark_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.string   "body"
+    t.integer  "room_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sent_notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "marker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "status_text"
+    t.integer  "user_id"
+    t.datetime "expires_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "user_camera_locations", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,9 +136,12 @@ ActiveRecord::Schema.define(version: 20170420140931) do
     t.string   "f_name"
     t.string   "l_name"
     t.string   "email"
-    t.boolean  "notification", default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "notification",    default: true
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.float    "distance",        default: 20.0
+    t.string   "name"
+    t.string   "password_digest"
   end
 
 end
