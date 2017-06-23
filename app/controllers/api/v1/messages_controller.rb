@@ -1,13 +1,12 @@
 module Api
   module V1
     class MessagesController < ApplicationController
-      skip_before_action :authenticate_request, :only => [:send_message, :chats, :room_messages]
+      # skip_before_action :authenticate_request, :only => [:send_message, :chats, :room_messages]
 
       # ---------------------------------------- Send Message ---------------------------------------------------
       api :POST, '/v1/messages/send_message', 'Send Message'
       param :id, Integer, desc: 'Room id',required: true
-      param :sender_id, Integer, desc: 'Sender ID',required: true
-      param :receiver_id, Integer, desc: 'Receiver ID',required: true
+      param :uuid, String, desc: 'Sender uuid',required: true
       param :body, String, desc: 'Message Body',required: true
 
 
@@ -62,8 +61,8 @@ module Api
       }
       EOS
       def send_message
-        @room = Room.find(params[:id])
-        message = @room.messages.create(sender_id: params[:sender_id], receiver_id: params[:receiver_id],body: params[:body])
+        sender_id,receiver_id,room = Room.get_sender_receiver_id(params[:uuid],params[:id])
+        message = room.messages.create(sender_id: sender_id, receiver_id: receiver_id,body: params[:body])
         render json: {success: true,message: "",data: message.as_json(include: [:sender,:receiver]),status: 200}
       end
 

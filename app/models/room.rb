@@ -14,4 +14,17 @@ class Room < ApplicationRecord
   def last_message
     messages.last.as_json(include: [:sender,:receiver])
   end
+
+  class << self
+
+    def get_sender_receiver_id(uuid,room_id)
+      room = Room.find(room_id)
+      conversation = room.conversations.first
+      sender = User.find_by_uuid(uuid)
+      receiver_id = (conversation.user_id == sender.id) ? conversation.connection_id : conversation.user_id
+      [sender.id,receiver_id,room]
+    end
+
+  end
+
 end
