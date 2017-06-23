@@ -78,30 +78,10 @@ class User < ApplicationRecord
 
   class << self
 
-    def get_registered_contacts(params)
-      hsh = {}
-      arr = []
-      user = User.find_by(uuid: params[:uuid])
-      own_number = user.phone_number
-      contacts = JSON.parse params[:contacts]
-      verified_users = User.verified.pluck(:phone_number)
-      contacts.each do |contact|
-        contact["phoneNumbers"].each do |number|
-          number = number_format(number)
-          if verified_users.include? number and (own_number != number)
-            hsh[:contactName] = contact["contactName"]
-            hsh[:phoneNumber] = number
-            hash[:room] = get_room_key(own_number,number)
-            arr << hsh
-          end
-        end
-      end
-
-    end
-
-    def get_room_key(own_number,number)
-      ids = User.where(phone_number: [own_number,number]).order("id").map(&:id)
-      conversation = Conversation.where(user_id: ids.first,connection_id: ids.last).first
+    def get_room_key(uuid,number)
+      user = User.find_by_uuid(uuid)
+      user_id = User.find_by_phone_number(number).id
+      conversation = get_conversation(user,user_id)
       "room-#{conversation.room_id}"
     end
   end
