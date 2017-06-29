@@ -258,9 +258,3 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   twilio-ruby (~> 4.1.0)
   tzinfo-data
-
-RUBY VERSION
-   ruby 2.2.6p396
-
-BUNDLED WITH
-   1.15.1

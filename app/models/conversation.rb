@@ -21,20 +21,19 @@ class Conversation < ApplicationRecord
       conversation = user.conversations.create(connection_id: connection_id)
       room = conversation.create_room
       conversation.room_id = room.id
-      conversation.save
+      conversation.save!
       conversation.create_reverse_connection(room)
     end
 
     def get_conversation(user,user_id)
       conversation = user.conversations.find_by_connection_id(user_id)
-      conversation || Conversation.create_chat_room(user,user.id)
+      conversation || Conversation.create_chat_room(user,user_id)
     end
 
   end
 
-
   def create_reverse_connection(room)
-    Conversation.create(user_id: connection_id,connection_id: user_id,room_id: room.id)
+    Conversation.create!(user_id: connection_id,connection_id: user_id,room_id: room.id)
   end
 
 

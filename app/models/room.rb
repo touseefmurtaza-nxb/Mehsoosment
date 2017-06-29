@@ -9,10 +9,19 @@
 
 class Room < ApplicationRecord
   has_many :conversations
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   def last_message
-    messages.last.as_json(include: [:sender,:receiver])
+    # messages.last.as_json(include: [:sender,:receiver])
+    messages.last.as_json()
+  end
+
+  def sender
+    messages.try(:last).try(:sender).try(:as_json)
+  end
+
+  def receiver
+    messages.try(:last).try(:receiver ).try(:as_json)
   end
 
   class << self

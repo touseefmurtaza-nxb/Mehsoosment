@@ -45,10 +45,10 @@ module Api
           "message": "",
           "data": {
               "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE0OTc0NDIwMjJ9.KvFmFbUlEU9yoUG_8NZt9xXxbg4WU2CUpFnj3Cyw6Xs",
-              "user_id": 2,
+              "id": 2,
               "phone_number": "+923219346933",
-              "first_name": "ali",
-              "last_name": "imran",
+              "f_name": "ali",
+              "l_name": "imran",
               "email": "touseef.murtaza@nxb.com.pk",
               "notification": false
           },
@@ -72,10 +72,10 @@ module Api
                        data:
                        {  
                           auth_token:auth_token,
-                          user_id:@user.id,
+                          id:@user.id,
                           phone_number:@user.phone_number,
-                          first_name:@user.f_name,
-                          last_name:@user.l_name,
+                          f_name:@user.f_name,
+                          l_name:@user.l_name,
                           email:@user.email,
                           notification:@user.notification,
                        },
@@ -118,10 +118,10 @@ module Api
           "success": "true",
           "message": "User Setting Updated",
           "data": {
-              "user_id": 2,
+              "id": 2,
               "phone_number": "+923219346933",
-              "first_name": "ali",
-              "last_name": "imran",
+              "f_name": "ali",
+              "l_name": "imran",
               "email": "example@mail.com",
               "notification": false
           },
@@ -140,10 +140,10 @@ module Api
                        success:"true",
                        message:"User Setting Updated",
                        data:
-                           {  user_id: @user.id,
+                           {  id: @user.id,
                               phone_number: @user.phone_number,
-                              first_name: @user.f_name,
-                              last_name: @user.l_name,
+                              f_name: @user.f_name,
+                              l_name: @user.l_name,
                               email: @user.email,
                               notification: @user.notification
                            },
@@ -225,11 +225,11 @@ module Api
         "message": "Token Refreshed",
         "data": {
             "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE0OTgxMTY2OTV9.1L8D8ryz54Qouo_gkeuGgbXwbg4xWnQ9cMTcAIUGLf4",
-            "user_id": 2,
+            "id": 2,
             "uuid": "64f0e0c5-20f4-4071-a31b-e0b8ca69a938",
             "phone_number": "+923219346933",
-            "first_name": "ali",
-            "last_name": "imran",
+            "f_name": "ali",
+            "l_name": "imran",
             "email": "example@mail.com",
             "notification": false
         },
@@ -245,11 +245,11 @@ module Api
                    data:
                        {
                            auth_token:token,
-                           user_id:@user.id,
+                           id:@user.id,
                            uuid:@user.uuid,
                            phone_number:@user.phone_number,
-                           first_name:@user.f_name,
-                           last_name:@user.l_name,
+                           f_name:@user.f_name,
+                           l_name:@user.l_name,
                            email:@user.email,
                            notification:@user.notification,
                        },
