@@ -21,7 +21,8 @@ class Message < ApplicationRecord
   after_create :broadcast_message
 
   def broadcast_message
-    $redis.publish 'message', {room: "room-#{room_id}", id: self.id, sender_id: self.sender_id, receiver_id: self.receiver_id, body: self.body, created_at: self.created_at}.to_json
+    $redis.publish 'message', {room: "#{room_id}", id: self.id, sender_id: self.sender_id, receiver_id: self.receiver_id, body: self.body, created_at: self.created_at, sender: self.sender, receiver: self.receiver}.to_json
+    send_notification_to_receiver
   end
 
   def send_notification_to_receiver
@@ -31,10 +32,10 @@ class Message < ApplicationRecord
     registration_ids << device_token
     if device.device_type.eql?("android")
       fcm = FCM.new(ENV['FCM_API_KEY'])
-      options = {:data => {:body => "#{self}", :title => "Message alert"}}
+      options = {:data => {:body => "#{self.body}", :title => "Message alert", :type => 2}}
       response = fcm.send(registration_ids, options)
     elsif device.device_type.eql?("iOS")
-      APNS.send_notification(device_token, :@alert => "#{self}", :badge => 1, :sound => 'default')
+      APNS.send_notification(device_token, :alert => "#{self.body}", :badge => 1, :sound => 'default', :other => {:type => 2})
     end
   end
 

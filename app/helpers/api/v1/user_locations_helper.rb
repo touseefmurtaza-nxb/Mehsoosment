@@ -25,7 +25,8 @@ module Api
                 options = {:data => {:body => "#{@alert}", :title => "#{mark_type} alert"}}
                 response = fcm.send(registration_ids, options)
               elsif @location.user.device.device_type.eql?("iOS")
-                APNS.send_notification(device_token, :@alert => "#{@alert}", :badge => 1, :sound => 'default')
+                # APNS.send_notification(device_token, :@alert => "#{@alert}", :badge => 1, :sound => 'default')
+                APNS.send_notification(device_token, :alert => "#{@alert}", :badge => 1, :sound => 'default', :other => {:type => 1})
               end
             end
           end
