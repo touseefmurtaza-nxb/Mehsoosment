@@ -38,6 +38,9 @@ Rails.application.routes.draw do
       post 'messages/room', to: 'messages#room'
       delete 'messages/destroy_room', to: 'messages#destroy_room'
 
+      post 'rooms/read_messages', to: 'rooms#read_messages'
+      post 'rooms/unseen_messages', to: 'rooms#unseen_messages'
+
       resources :user_locations, only: [:create]
       resources :mark_feelings, only: [:create]
       resources :user_camera_locations, only: [:create]

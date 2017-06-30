@@ -9,6 +9,7 @@
 #  room_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  seen        :boolean          default("false")
 #
 
 require 'rails_helper'

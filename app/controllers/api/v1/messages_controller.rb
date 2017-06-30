@@ -303,8 +303,6 @@ module Api
       }
       EOS
       description <<-EOS
-        == Prepend room-
-         id is returned in json, you have to prepend room-.
         == Authentication required
          Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
       EOS

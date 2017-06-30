@@ -9,6 +9,7 @@
 #  room_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  seen        :boolean          default("false")
 #
 
 class Message < ApplicationRecord
@@ -26,7 +27,7 @@ class Message < ApplicationRecord
   end
 
   def send_notification_to_receiver
-    device = self.sender.device
+    device = self.receiver.device
     device_token = device.try(:device_token)
     registration_ids = []
     registration_ids << device_token

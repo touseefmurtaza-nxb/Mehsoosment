@@ -29,4 +29,5 @@
 /config/environment_variables.yml
 # Ignore database credentials
 /config/database.yml
+/config/initializers/redis.rb
 /.ruby-version
