@@ -201,10 +201,10 @@ module Api
           contact["phoneNumbers"].each do |number|
             number = number.gsub(/\s+/, "")
             number = number_format(number)
-            if verified_users.include? number and (own_number != number)
+            if ((verified_users.include?(number)) and (own_number != number))
               hsh[:contactName] = contact["contactName"]
               hsh[:phoneNumber] = number
-              arr << hsh
+              arr << hsh unless arr.include?(hsh)
             end
           end
         end
@@ -266,7 +266,7 @@ module Api
       end
       def number_format number
         if number[0] == "0"
-          number = number.sub(/^./, '+92')
+          number.sub!(/^./, '+92')
         end
         return number
       end

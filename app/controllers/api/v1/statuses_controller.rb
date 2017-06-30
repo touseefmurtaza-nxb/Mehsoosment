@@ -12,13 +12,13 @@ module Api
         "success": "true",
         "message": "Status Saved",
         "data": {
-            "status_id": 22,
-            "status_text": "Hello, How Are You Doing?",
-            "user_id": 2,
-            "uuid": "64f0e0c5-20f4-4071-a31b-e0b8ca69a938",
-            "expires_at": "2017-06-22T11:27:33.839Z",
-            "created_at": "2017-06-21T11:27:33.839Z",
-            "image_url": "/system/statuses/images/000/000/022/original/18238194_1566992733334257_8603697286439955519_o.jpg?1498044453"
+            "status_id": 33,
+            "status_text": "Hello, How Are You?",
+            "user_id": 1,
+            "uuid": "402bd6ba-8425-4ec4-b6e8-f3c6534ec451",
+            "expires_at": "2017-07-01T11:35:58.498Z",
+            "created_at": "2017-06-30T11:35:58.498Z",
+            "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/033/original/20170616_110750.jpg?1498822556"
         },
         "status": 200
       }
