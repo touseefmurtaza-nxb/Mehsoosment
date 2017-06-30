@@ -191,7 +191,6 @@ module Api
          Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
       EOS
       def get_registered_contacts
-        hsh = {}
         arr = []
         user = User.find_by(uuid: params[:uuid])
         own_number = user.phone_number
@@ -202,8 +201,7 @@ module Api
             number = number.gsub(/\s+/, "")
             number = number_format(number)
             if ((verified_users.include?(number)) and (own_number != number))
-              hsh[:contactName] = contact["contactName"]
-              hsh[:phoneNumber] = number
+              hsh = {contactName: contact["contactName"], phoneNumber: number}
               arr << hsh unless arr.include?(hsh)
             end
           end
