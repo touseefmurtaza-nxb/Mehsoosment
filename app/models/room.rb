@@ -24,6 +24,10 @@ class Room < ApplicationRecord
     messages.try(:last).try(:receiver ).try(:as_json)
   end
 
+  def unseen_msgs_count
+    messages.where(seen: false).count
+  end
+
   class << self
 
     def get_sender_receiver_id(uuid,room_id)
