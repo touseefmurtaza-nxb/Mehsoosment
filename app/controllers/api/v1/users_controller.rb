@@ -262,32 +262,21 @@ module Api
       example <<-EOS
       {
         "success": "true",
-        "message": "Guest User Created",
+        "message": "",
         "data": {
-            "user": {
-                "id": 12,
-                "phone_number": "+9230098432147",
-                "pin": "3589",
-                "verified": true,
-                "uuid": "6d8f204c-df5c-4a2a-8b6a-f22c98a866b6",
-                "expires_at": null,
-                "f_name": "guest user",
-                "l_name": null,
-                "email": null,
-                "notification": true,
-                "created_at": "2017-06-30T15:12:39.382Z",
-                "updated_at": "2017-06-30T15:12:39.382Z",
-                "distance": 20,
-                "name": null,
-                "password_digest": null
-            },
-            "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNTAxNDI3NTU5fQ.bppUNqcBnCobwkDOxe2D5qeftpK83NQ4HrPtxx9znQw"
+            "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNTAxNDI5NzcxfQ.gw3m4CQhW4d1Gp0eHJJJ6N_8xhBgUKEhPmdzwMksdgU",
+            "id": 16,
+            "phone_number": "+923001165925",
+            "f_name": "guest user",
+            "l_name": null,
+            "email": null,
+            "notification": true
         },
         "status": 200
       }
       EOS
       def register_as_guest
-        phone_number = "+92300#{rand(00000000..99999999)}"
+        phone_number = "+92300#{rand(0000000..9999999)}"
         pin = rand(0000..9999).to_s.rjust(4, "0")
         uuid ||= SecureRandom.uuid
         verified = true
@@ -300,9 +289,21 @@ module Api
           render json: { error: command.errors }, status: :unauthorized
         end
         if @user
-          render :json => {success:"true", message:"Guest User Created", data:{user:@user, auth_token: auth_token}, status:200}
-        else
-          render :json => {success:"false", message:"", data:{}, status:400}
+          render :json => {
+              success:"true",
+              message:"",
+              data:
+                  {
+                      auth_token:auth_token,
+                      id:@user.id,
+                      phone_number:@user.phone_number,
+                      f_name:@user.f_name,
+                      l_name:@user.l_name,
+                      email:@user.email,
+                      notification:@user.notification,
+                  },
+              status:200
+          }
         end
       end
 
