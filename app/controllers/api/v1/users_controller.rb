@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      skip_before_action :authenticate_request, :only => [:create, :verify, :refresh_token]
+      skip_before_action :authenticate_request, :only => [:create, :verify, :refresh_token, :register_as_guest]
       include UsersHelper
 
       # ---------------------------------------- User Registration Through Phone Number --------------------------------
@@ -253,6 +253,57 @@ module Api
                        },
                    status:200
                }
+      end
+
+      # ---------------------------------------- Create Guest User ---------------------------------------------------
+      api :POST, '/v1/users/register_as_guest', 'Create Guest User'
+      param "device_type", String, desc: 'Device Type', required: true
+      param "device_token", String, desc: 'Device Token', required: true
+      example <<-EOS
+      {
+        "success": "true",
+        "message": "Guest User Created",
+        "data": {
+            "user": {
+                "id": 12,
+                "phone_number": "+9230098432147",
+                "pin": "3589",
+                "verified": true,
+                "uuid": "6d8f204c-df5c-4a2a-8b6a-f22c98a866b6",
+                "expires_at": null,
+                "f_name": "guest user",
+                "l_name": null,
+                "email": null,
+                "notification": true,
+                "created_at": "2017-06-30T15:12:39.382Z",
+                "updated_at": "2017-06-30T15:12:39.382Z",
+                "distance": 20,
+                "name": null,
+                "password_digest": null
+            },
+            "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNTAxNDI3NTU5fQ.bppUNqcBnCobwkDOxe2D5qeftpK83NQ4HrPtxx9znQw"
+        },
+        "status": 200
+      }
+      EOS
+      def register_as_guest
+        phone_number = "+92300#{rand(00000000..99999999)}"
+        pin = rand(0000..9999).to_s.rjust(4, "0")
+        uuid ||= SecureRandom.uuid
+        verified = true
+        @user = User.create!(phone_number: phone_number, pin: pin, uuid: uuid, verified: verified, f_name: "guest user")
+        Device.create(:device_token => params[:device_token], :device_type => params[:device_type], :user_id => @user.id)
+        command = AuthenticateUser.call(@user.uuid, @user.pin)
+        if command.success?
+          auth_token = command.result
+        else
+          render json: { error: command.errors }, status: :unauthorized
+        end
+        if @user
+          render :json => {success:"true", message:"Guest User Created", data:{user:@user, auth_token: auth_token}, status:200}
+        else
+          render :json => {success:"false", message:"", data:{}, status:400}
+        end
       end
 
       private

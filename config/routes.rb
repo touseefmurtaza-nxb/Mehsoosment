@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       post 'users/registered_contacts' => "users#get_registered_contacts", as: :get_registered_contacts
       post '/users/refresh_token' => "users#refresh_token"
       post 'users/authenticate', to: 'authentication#authenticate'
+      post 'users/register_as_guest', to: 'users#register_as_guest'
 
       post 'messages/send_message', to: 'messages#send_message'
       post 'messages/chats', to: 'messages#chats'
