@@ -264,9 +264,10 @@ module Api
         "success": "true",
         "message": "",
         "data": {
-            "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNTAxNDI5NzcxfQ.gw3m4CQhW4d1Gp0eHJJJ6N_8xhBgUKEhPmdzwMksdgU",
-            "id": 16,
-            "phone_number": "+923001165925",
+            "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNywiZXhwIjoxNTAxNDMxNzQ1fQ.bYVIOXWhtjoHKeTXdSk025GJQ0wCB0cwual0fP8d0zs",
+            "id": 17,
+            "uuid": "89d7c1d7-7f27-4bf7-8d28-a80bd9568f8e",
+            "phone_number": "+923007327799",
             "f_name": "guest user",
             "l_name": null,
             "email": null,
@@ -296,11 +297,12 @@ module Api
                   {
                       auth_token:auth_token,
                       id:@user.id,
+                      uuid:@user.uuid,
                       phone_number:@user.phone_number,
                       f_name:@user.f_name,
                       l_name:@user.l_name,
                       email:@user.email,
-                      notification:@user.notification,
+                      notification:@user.notification
                   },
               status:200
           }
