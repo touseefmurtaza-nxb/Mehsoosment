@@ -75,9 +75,11 @@ class User < ApplicationRecord
   def expired?
     Time.zone.now > self.expires_at
   end
+  def name
+    "#{f_name} #{l_name}"
+  end
 
   class << self
-
     def get_room_key(uuid,number)
       user = User.find_by_uuid(uuid)
       user_id = User.find_by_phone_number(number).id
