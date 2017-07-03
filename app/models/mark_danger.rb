@@ -17,4 +17,9 @@ class MarkDanger < ApplicationRecord
 
   reverse_geocoded_by :latitude, :longitude
   # after_validation :reverse_geocode
+
+  def user_status
+    status = user.try(:statuses).try(:last)
+    {:status_id => status.id, :status_text => status.status_text, :image_url => "http://mehsoosment.vteamslabs.com/" + status.image.url } if status
+  end
 end
