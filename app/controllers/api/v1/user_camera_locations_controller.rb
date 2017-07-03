@@ -13,7 +13,7 @@ module Api
         "success": "true",
         "message": "Location Saved",
         "data": {
-            "alert": "",
+            "alert": "You are on Naaka place.",
             "markers": [
                 {
                     "id": 23,
@@ -26,9 +26,9 @@ module Api
                     "distance": 0,
                     "bearing": "0.0",
                     "user_status": {
-                        "status_id": 16,
-                        "status_text": "testing",
-                        "image_url": ""
+                        "status_id": 26,
+                        "status_text": "Hello, How You Doing?",
+                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
                     }
                 },
                 {
@@ -42,9 +42,9 @@ module Api
                     "distance": 0,
                     "bearing": "0.0",
                     "user_status": {
-                        "status_id": 16,
-                        "status_text": "testing",
-                        "image_url": ""
+                        "status_id": 26,
+                        "status_text": "Hello, How You Doing?",
+                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
                     }
                 },
                 {
@@ -58,9 +58,9 @@ module Api
                     "distance": 0,
                     "bearing": "0.0",
                     "user_status": {
-                        "status_id": 16,
-                        "status_text": "testing",
-                        "image_url": ""
+                        "status_id": 26,
+                        "status_text": "Hello, How You Doing?",
+                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
                     }
                 },
                 {
@@ -73,11 +73,7 @@ module Api
                     "updated_at": "2017-06-19T10:39:20.703Z",
                     "distance": 0,
                     "bearing": "0.0",
-                    "user_status": {
-                        "status_id": "",
-                        "status_text": "",
-                        "image_url": ""
-                    }
+                    "user_status": null
                 },
                 {
                     "id": 22,
@@ -90,9 +86,9 @@ module Api
                     "distance": 5.96832633730437e-7,
                     "bearing": "89.99999997945",
                     "user_status": {
-                        "status_id": 16,
-                        "status_text": "testing",
-                        "image_url": ""
+                        "status_id": 26,
+                        "status_text": "Hello, How You Doing?",
+                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
                     }
                 },
                 {
@@ -106,9 +102,9 @@ module Api
                     "distance": 0.0000483434730174405,
                     "bearing": "89.99999997945",
                     "user_status": {
-                        "status_id": 16,
-                        "status_text": "testing",
-                        "image_url": ""
+                        "status_id": 26,
+                        "status_text": "Hello, How You Doing?",
+                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
                     }
                 },
                 {
@@ -122,9 +118,9 @@ module Api
                     "distance": 0.0000483434730174405,
                     "bearing": "89.99999997945",
                     "user_status": {
-                        "status_id": 16,
-                        "status_text": "testing",
-                        "image_url": ""
+                        "status_id": 26,
+                        "status_text": "Hello, How You Doing?",
+                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
                     }
                 }
             ]
