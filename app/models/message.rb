@@ -28,16 +28,18 @@ class Message < ApplicationRecord
   end
 
   def send_notification_to_receiver
+    binding.pry
+    unseen_messages = self.room.messages.where(seen: false, receiver_id: self.receiver_id).count
     device = self.receiver.device
     device_token = device.try(:device_token)
     registration_ids = []
     registration_ids << device_token
     if device.device_type.eql?("android")
       fcm = FCM.new(ENV['FCM_API_KEY'])
-      options = {:data => {:body => self.body, :title => "Message alert", :type => 2, :room_id => self.room_id, :sender_id => self.sender.try(:id), :sender_name => self.sender.try(:name)}}
+      options = {:data => {:body => self.body, :title => "Message alert", :type => 2,:badge => unseen_messages, :room_id => self.room_id, :sender_id => self.sender.try(:id), :sender_name => self.sender.try(:name)}}
       response = fcm.send(registration_ids, options)
     elsif device.device_type.eql?("iOS")
-      APNS.send_notification(device_token, :alert => self.body, :badge => 1, :sound => 'default', :other => {:type => 2, :room_id => self.room_id, :sender_id => self.sender.try(:id), :sender_name => self.sender.try(:name)})
+      APNS.send_notification(device_token, :alert => self.body, :badge => unseen_messages, :sound => 'default', :other => {:type => 2, :room_id => self.room_id, :sender_id => self.sender.try(:id), :sender_name => self.sender.try(:name)})
     end
   end
 
