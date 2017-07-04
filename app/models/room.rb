@@ -17,16 +17,20 @@ class Room < ApplicationRecord
   end
 
   def sender
-    messages.try(:last).try(:sender).try(:as_json)
+    messages.order(id: :asc).try(:last).try(:sender).try(:as_json)
   end
 
   def receiver
-    messages.try(:last).try(:receiver ).try(:as_json)
+    messages.order(id: :asc).try(:last).try(:receiver ).try(:as_json)
   end
 
   def unseen_msgs_count
     # messages.where(seen: false).count
     messages.where(seen: false, receiver_id: $user_id).count
+  end
+
+  def sorted_rooms
+    messages.order("messages.created_at").as_json(include: [:sender, :receiver])
   end
 
   class << self
