@@ -25,7 +25,8 @@ class Room < ApplicationRecord
   end
 
   def unseen_msgs_count
-    messages.where(seen: false).count
+    # messages.where(seen: false).count
+    messages.where(seen: false, receiver_id: $user_id).count
   end
 
   class << self

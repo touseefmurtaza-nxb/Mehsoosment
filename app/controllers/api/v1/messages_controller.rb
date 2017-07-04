@@ -273,12 +273,16 @@ module Api
         room_ids = User.find_by_uuid(params[:uuid]).conversations.map(&:room).compact.map(&:id)
         @rooms = Room.includes(messages: [:sender,:receiver]).where(id: room_ids.uniq)
         # render json: {success: true,message: "",data: @rooms.as_json(methods: :last_message),status: 200}
+        # msg_count = unseen_msgs_count(params[:user_id])
+        $user_id = User.find_by_uuid(params[:uuid]).id
         render json: {success: true,message: "",data: @rooms.as_json(methods: [:unseen_msgs_count, :sender, :receiver, :last_message]),status: 200}
       end
 
       # ---------------------------------------- Room Messages ---------------------------------------------------
       api :POST, '/v1/messages/room_messages', 'Room Messages'
       param :id, Integer, desc: 'Room id',required: true
+      param :user_id, Integer, desc: 'User who tap on chat room',required: true
+
       example <<-EOS
       {
           "success": true,
@@ -696,7 +700,8 @@ module Api
 
       def room_messages
         room = Room.find(params[:id])
-        room.messages.where(seen: false).update_all(seen: true)
+        # room.messages.where(seen: false).update_all(seen: true)
+        room.messages.where(seen: false, receiver_id: params[:user_id]).update_all(seen: true)
         render json: {success: true,message: "",data: room.as_json(include: {messages: {include: [:sender,:receiver]}}),status: 200}
       end
 

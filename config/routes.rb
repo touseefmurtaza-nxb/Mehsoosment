@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
       post 'rooms/read_messages', to: 'rooms#read_messages'
       post 'rooms/unseen_messages', to: 'rooms#unseen_messages'
+      post 'rooms/leave_room', to: 'rooms#leave_room'
 
       resources :user_locations, only: [:create]
       resources :mark_feelings, only: [:create]
