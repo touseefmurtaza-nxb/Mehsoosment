@@ -29,7 +29,7 @@ class Room < ApplicationRecord
     messages.where(seen: false, receiver_id: $user_id).count
   end
 
-  def sorted_rooms
+  def room_messages
     messages.order("messages.created_at").as_json(include: [:sender, :receiver])
   end
 

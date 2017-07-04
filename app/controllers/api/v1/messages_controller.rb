@@ -291,7 +291,7 @@ module Api
             "id": 15,
             "created_at": "2017-07-04T06:31:33.840Z",
             "updated_at": "2017-07-04T06:31:33.840Z",
-            "sorted_rooms": [
+            "room_messages": [
                 {
                     "id": 49,
                     "sender_id": 17,
@@ -687,6 +687,94 @@ module Api
                         "name": "ali imran",
                         "password_digest": null
                     }
+                },
+                {
+                    "id": 58,
+                    "sender_id": 17,
+                    "receiver_id": 2,
+                    "body": "message body",
+                    "room_id": 15,
+                    "created_at": "2017-07-04T13:46:38.859Z",
+                    "updated_at": "2017-07-04T13:46:38.859Z",
+                    "seen": true,
+                    "sender": {
+                        "id": 17,
+                        "phone_number": "+923007327799",
+                        "pin": "6221",
+                        "verified": true,
+                        "uuid": "89d7c1d7-7f27-4bf7-8d28-a80bd9568f8e",
+                        "expires_at": null,
+                        "f_name": "guest user",
+                        "l_name": null,
+                        "email": null,
+                        "notification": true,
+                        "created_at": "2017-06-30T16:22:25.199Z",
+                        "updated_at": "2017-06-30T16:22:25.199Z",
+                        "distance": 20,
+                        "name": "guest user ",
+                        "password_digest": null
+                    },
+                    "receiver": {
+                        "id": 2,
+                        "phone_number": "+923219346933",
+                        "pin": "3389",
+                        "verified": true,
+                        "uuid": "64f0e0c5-20f4-4071-a31b-e0b8ca69a938",
+                        "expires_at": "2017-06-19T07:15:34.135Z",
+                        "f_name": "ali",
+                        "l_name": "imran",
+                        "email": "example@mail.com",
+                        "notification": false,
+                        "created_at": "2017-04-21T08:12:11.358Z",
+                        "updated_at": "2017-06-19T06:46:17.737Z",
+                        "distance": 20,
+                        "name": "ali imran",
+                        "password_digest": null
+                    }
+                },
+                {
+                    "id": 59,
+                    "sender_id": 17,
+                    "receiver_id": 2,
+                    "body": "message body",
+                    "room_id": 15,
+                    "created_at": "2017-07-04T13:47:09.268Z",
+                    "updated_at": "2017-07-04T13:47:09.268Z",
+                    "seen": true,
+                    "sender": {
+                        "id": 17,
+                        "phone_number": "+923007327799",
+                        "pin": "6221",
+                        "verified": true,
+                        "uuid": "89d7c1d7-7f27-4bf7-8d28-a80bd9568f8e",
+                        "expires_at": null,
+                        "f_name": "guest user",
+                        "l_name": null,
+                        "email": null,
+                        "notification": true,
+                        "created_at": "2017-06-30T16:22:25.199Z",
+                        "updated_at": "2017-06-30T16:22:25.199Z",
+                        "distance": 20,
+                        "name": "guest user ",
+                        "password_digest": null
+                    },
+                    "receiver": {
+                        "id": 2,
+                        "phone_number": "+923219346933",
+                        "pin": "3389",
+                        "verified": true,
+                        "uuid": "64f0e0c5-20f4-4071-a31b-e0b8ca69a938",
+                        "expires_at": "2017-06-19T07:15:34.135Z",
+                        "f_name": "ali",
+                        "l_name": "imran",
+                        "email": "example@mail.com",
+                        "notification": false,
+                        "created_at": "2017-04-21T08:12:11.358Z",
+                        "updated_at": "2017-06-19T06:46:17.737Z",
+                        "distance": 20,
+                        "name": "ali imran",
+                        "password_digest": null
+                    }
                 }
             ]
         },
@@ -703,7 +791,7 @@ module Api
         # room.messages.where(seen: false).update_all(seen: true)
         room.messages.where(seen: false, receiver_id: params[:user_id]).update_all(seen: true)
         # render json: {success: true,message: "",data: room.as_json(include: {messages: {include: [:sender,:receiver]}}),status: 200}
-        render json: {success: true,message: "",data: room.as_json(methods: :sorted_rooms),status: 200}
+        render json: {success: true,message: "",data: room.as_json(methods: :room_messages),status: 200}
       end
 
       # ---------------------------------------- Create Conversation ---------------------------------------------------

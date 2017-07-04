@@ -28,7 +28,6 @@ class Message < ApplicationRecord
   end
 
   def send_notification_to_receiver
-    binding.pry
     unseen_messages = self.room.messages.where(seen: false, receiver_id: self.receiver_id).count
     device = self.receiver.device
     device_token = device.try(:device_token)
