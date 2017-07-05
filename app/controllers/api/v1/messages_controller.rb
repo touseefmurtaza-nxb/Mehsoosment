@@ -66,6 +66,7 @@ module Api
       EOS
       def send_message
         sender_id,receiver_id,room = Room.get_sender_receiver_id(params[:uuid],params[:id])
+        # converstaion = Conversation.get_conversation(sender,receiver_id)
         message = room.messages.create(sender_id: sender_id, receiver_id: receiver_id,body: params[:body])
         render json: {success: true,message: "",data: message.as_json(include: [:sender,:receiver]),status: 200}
         # render json: {success: true,message: "",data: message.as_json,status: 200}

@@ -13,7 +13,7 @@ class Room < ApplicationRecord
 
   def last_message
     # messages.last.as_json(include: [:sender,:receiver])
-    messages.last.as_json()
+    messages.order("messages.created_at").last.as_json()
   end
 
   def sender
