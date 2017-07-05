@@ -272,7 +272,10 @@ module Api
 
       def chats
         room_ids = User.find_by_uuid(params[:uuid]).conversations.map(&:room).compact.map(&:id)
-        @rooms = Room.includes(messages: [:sender,:receiver]).where(id: room_ids.uniq)
+        @rooms = Room.includes(messages: [:sender,:receiver]).where(id: room_ids.uniq).where("messages is not null").order('messages.id desc')
+        @rooms_with_no_message = Room.where(id: room_ids.uniq - @rooms.collect(&:id))
+        @rooms = @rooms + @rooms_with_no_message
+        # binding.pry
         # render json: {success: true,message: "",data: @rooms.as_json(methods: :last_message),status: 200}
         # msg_count = unseen_msgs_count(params[:user_id])
         $user_id = User.find_by_uuid(params[:uuid]).id
