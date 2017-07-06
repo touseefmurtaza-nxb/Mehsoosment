@@ -6,7 +6,7 @@ if @markups
       @alert = ""
     end
     json.alert @alert
-    json.markers @markups.as_json(methods: [:user_status])
+    json.markers @markups.reorder('id DESC').as_json(methods: [:user_status])
     # json.markers @markups do |markup|
     #   json.(markup, :id, :latitude, :longitude, :user_id, :mark_type, :created_at, :updated_at, :distance, :bearing)
     #   json.user_status do

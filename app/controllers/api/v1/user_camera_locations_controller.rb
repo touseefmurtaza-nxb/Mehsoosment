@@ -13,82 +13,22 @@ module Api
         "success": "true",
         "message": "Location Saved",
         "data": {
-            "alert": "You are on Naaka place.",
+            "alert": "You are on Challan place.",
             "markers": [
                 {
-                    "id": 23,
+                    "id": 20,
                     "latitude": 30.253235541,
-                    "longitude": 72.273272016,
+                    "longitude": 72.273272826,
                     "user_id": 2,
-                    "mark_type": 4,
-                    "created_at": "2017-06-19T10:38:31.524Z",
-                    "updated_at": "2017-06-19T10:38:31.524Z",
-                    "distance": 0,
-                    "bearing": "0.0",
-                    "user_status": {
-                        "status_id": 26,
-                        "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
-                    }
-                },
-                {
-                    "id": 24,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272016,
-                    "user_id": 2,
-                    "mark_type": 1,
-                    "created_at": "2017-06-19T10:38:34.774Z",
-                    "updated_at": "2017-06-19T10:38:34.774Z",
-                    "distance": 0,
-                    "bearing": "0.0",
-                    "user_status": {
-                        "status_id": 26,
-                        "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
-                    }
-                },
-                {
-                    "id": 25,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272016,
-                    "user_id": 2,
-                    "mark_type": 3,
-                    "created_at": "2017-06-19T10:38:38.011Z",
-                    "updated_at": "2017-06-19T10:38:38.011Z",
-                    "distance": 0,
-                    "bearing": "0.0",
-                    "user_status": {
-                        "status_id": 26,
-                        "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
-                    }
-                },
-                {
-                    "id": 26,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272016,
-                    "user_id": 3,
-                    "mark_type": 3,
-                    "created_at": "2017-06-19T10:39:20.703Z",
-                    "updated_at": "2017-06-19T10:39:20.703Z",
-                    "distance": 0,
-                    "bearing": "0.0",
-                    "user_status": null
-                },
-                {
-                    "id": 22,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272026,
-                    "user_id": 2,
-                    "mark_type": 4,
-                    "created_at": "2017-06-19T10:38:26.897Z",
-                    "updated_at": "2017-06-19T10:38:26.897Z",
-                    "distance": 5.96832633730437e-7,
+                    "mark_type": 2,
+                    "created_at": "2017-06-19T10:33:33.864Z",
+                    "updated_at": "2017-06-19T10:33:33.864Z",
+                    "distance": 0.0000483434730174405,
                     "bearing": "89.99999997945",
                     "user_status": {
                         "status_id": 26,
                         "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
+                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
                     }
                 },
                 {
@@ -104,24 +44,84 @@ module Api
                     "user_status": {
                         "status_id": 26,
                         "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
+                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
                     }
                 },
                 {
-                    "id": 20,
+                    "id": 22,
                     "latitude": 30.253235541,
-                    "longitude": 72.273272826,
+                    "longitude": 72.273272026,
                     "user_id": 2,
-                    "mark_type": 2,
-                    "created_at": "2017-06-19T10:33:33.864Z",
-                    "updated_at": "2017-06-19T10:33:33.864Z",
-                    "distance": 0.0000483434730174405,
+                    "mark_type": 4,
+                    "created_at": "2017-06-19T10:38:26.897Z",
+                    "updated_at": "2017-06-19T10:38:26.897Z",
+                    "distance": 5.96832633730437e-7,
                     "bearing": "89.99999997945",
                     "user_status": {
                         "status_id": 26,
                         "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com//system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
+                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
                     }
+                },
+                {
+                    "id": 23,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272016,
+                    "user_id": 2,
+                    "mark_type": 4,
+                    "created_at": "2017-06-19T10:38:31.524Z",
+                    "updated_at": "2017-06-19T10:38:31.524Z",
+                    "distance": 0,
+                    "bearing": "0.0",
+                    "user_status": {
+                        "status_id": 26,
+                        "status_text": "Hello, How You Doing?",
+                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
+                    }
+                },
+                {
+                    "id": 24,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272016,
+                    "user_id": 2,
+                    "mark_type": 1,
+                    "created_at": "2017-06-19T10:38:34.774Z",
+                    "updated_at": "2017-06-19T10:38:34.774Z",
+                    "distance": 0,
+                    "bearing": "0.0",
+                    "user_status": {
+                        "status_id": 26,
+                        "status_text": "Hello, How You Doing?",
+                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
+                    }
+                },
+                {
+                    "id": 25,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272016,
+                    "user_id": 2,
+                    "mark_type": 3,
+                    "created_at": "2017-06-19T10:38:38.011Z",
+                    "updated_at": "2017-06-19T10:38:38.011Z",
+                    "distance": 0,
+                    "bearing": "0.0",
+                    "user_status": {
+                        "status_id": 26,
+                        "status_text": "Hello, How You Doing?",
+                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
+                    }
+                },
+                {
+                    "id": 26,
+                    "latitude": 30.253235541,
+                    "longitude": 72.273272016,
+                    "user_id": 3,
+                    "mark_type": 3,
+                    "created_at": "2017-06-19T10:39:20.703Z",
+                    "updated_at": "2017-06-19T10:39:20.703Z",
+                    "distance": 0,
+                    "bearing": "0.0",
+                    "user_status": null
                 }
             ]
         }
