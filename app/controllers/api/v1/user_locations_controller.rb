@@ -43,7 +43,7 @@ module Api
                     "updated_at": "2017-07-04T08:12:44.385Z",
                     "user_status": {
                         "status_id": 46,
-                        "status_text": "Hello how are you??????\n\n\n\n\n\n\n\n\n\nBxbdhdh\nHddhdhd\nZudud",
+                        "status_text": "Hello how are you??",
                         "image_url": "/system/statuses/images/000/000/046/original/image.jpg?1499323881"
                     }
                 },
