@@ -10,121 +10,61 @@ module Api
       param :user_id, Integer, desc: 'User id, whose current location is marked', required: true
       example <<-EOS
       {
-        "success": "true",
-        "message": "Location Saved",
-        "data": {
-            "alert": "You are on Crime place.",
-            "markers": [
-                {
-                    "id": 26,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272016,
-                    "user_id": 3,
-                    "mark_type": 3,
-                    "created_at": "2017-06-19T10:39:20.703Z",
-                    "updated_at": "2017-06-19T10:39:20.703Z",
-                    "distance": 0,
-                    "bearing": "0.0",
-                    "user_status": null
-                },
-                {
-                    "id": 25,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272016,
-                    "user_id": 2,
-                    "mark_type": 3,
-                    "created_at": "2017-06-19T10:38:38.011Z",
-                    "updated_at": "2017-06-19T10:38:38.011Z",
-                    "distance": 0,
-                    "bearing": "0.0",
-                    "user_status": {
-                        "status_id": 26,
-                        "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
-                    }
-                },
-                {
-                    "id": 24,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272016,
-                    "user_id": 2,
-                    "mark_type": 1,
-                    "created_at": "2017-06-19T10:38:34.774Z",
-                    "updated_at": "2017-06-19T10:38:34.774Z",
-                    "distance": 0,
-                    "bearing": "0.0",
-                    "user_status": {
-                        "status_id": 26,
-                        "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
-                    }
-                },
-                {
-                    "id": 23,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272016,
-                    "user_id": 2,
-                    "mark_type": 4,
-                    "created_at": "2017-06-19T10:38:31.524Z",
-                    "updated_at": "2017-06-19T10:38:31.524Z",
-                    "distance": 0,
-                    "bearing": "0.0",
-                    "user_status": {
-                        "status_id": 26,
-                        "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
-                    }
-                },
-                {
-                    "id": 22,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272026,
-                    "user_id": 2,
-                    "mark_type": 4,
-                    "created_at": "2017-06-19T10:38:26.897Z",
-                    "updated_at": "2017-06-19T10:38:26.897Z",
-                    "distance": 5.96832633730437e-7,
-                    "bearing": "89.99999997945",
-                    "user_status": {
-                        "status_id": 26,
-                        "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
-                    }
-                },
-                {
-                    "id": 21,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272826,
-                    "user_id": 2,
-                    "mark_type": 3,
-                    "created_at": "2017-06-19T10:38:19.533Z",
-                    "updated_at": "2017-06-19T10:38:19.533Z",
-                    "distance": 0.0000483434730174405,
-                    "bearing": "89.99999997945",
-                    "user_status": {
-                        "status_id": 26,
-                        "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
-                    }
-                },
-                {
-                    "id": 20,
-                    "latitude": 30.253235541,
-                    "longitude": 72.273272826,
-                    "user_id": 2,
-                    "mark_type": 2,
-                    "created_at": "2017-06-19T10:33:33.864Z",
-                    "updated_at": "2017-06-19T10:33:33.864Z",
-                    "distance": 0.0000483434730174405,
-                    "bearing": "89.99999997945",
-                    "user_status": {
-                        "status_id": 26,
-                        "status_text": "Hello, How You Doing?",
-                        "image_url": "http://mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
-                    }
-                }
-            ]
-        }
+          "success": "true",
+          "message": "Location Saved",
+          "data": {
+              "alert": "You are on Challan place.",
+              "markers": [
+                  {
+                      "id": 19,
+                      "latitude": 33.253235541,
+                      "longitude": 74.27327282603,
+                      "user_id": 2,
+                      "mark_type": 4,
+                      "created_at": "23 days ago",
+                      "updated_at": "2017-06-14T09:41:29.702Z",
+                      "distance": 0,
+                      "bearing": "0.0",
+                      "user_status": {
+                          "status_id": 26,
+                          "status_text": "Hello, How You Doing?",
+                          "image_url": "mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
+                      }
+                  },
+                  {
+                      "id": 18,
+                      "latitude": 33.253235541,
+                      "longitude": 74.27327282603,
+                      "user_id": 2,
+                      "mark_type": 4,
+                      "created_at": "23 days ago",
+                      "updated_at": "2017-06-13T12:22:55.540Z",
+                      "distance": 0,
+                      "bearing": "0.0",
+                      "user_status": {
+                          "status_id": 26,
+                          "status_text": "Hello, How You Doing?",
+                          "image_url": "mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
+                      }
+                  },
+                  {
+                      "id": 17,
+                      "latitude": 33.253235541,
+                      "longitude": 74.27327282603,
+                      "user_id": 2,
+                      "mark_type": 4,
+                      "created_at": "23 days ago",
+                      "updated_at": "2017-06-13T12:06:24.180Z",
+                      "distance": 0,
+                      "bearing": "0.0",
+                      "user_status": {
+                          "status_id": 26,
+                          "status_text": "Hello, How You Doing?",
+                          "image_url": "mehsoosment.vteamslabs.com/system/statuses/images/000/000/026/original/20170616_110750.jpg?1498123121"
+                      }
+                  }
+              ]
+          }
       }
       EOS
       description <<-EOS

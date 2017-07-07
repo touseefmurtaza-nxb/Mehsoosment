@@ -12,81 +12,50 @@ module Api
       param :north_east_point, String, desc: 'North East Point comma separated e.g. (31.469111,74.27178)', required: true
       example <<-EOS
       {
-        "success": "true",
-        "message": "Location Saved",
-        "data": {
-            "alert": null,
-            "markers": [
-                {
-                    "id": 148,
-                    "latitude": 31.4713498,
-                    "longitude": 74.2728264,
-                    "user_id": 15,
-                    "mark_type": 3,
-                    "distance": 0.008723732312775739,
-                    "created_at": "2017-07-05T16:26:06.779Z",
-                    "updated_at": "2017-07-05T16:26:06.779Z",
-                    "user_status": {
-                        "status_id": 47,
-                        "status_text": "",
-                        "image_url": "/system/statuses/images/000/000/047/original/20170705_165548.jpg?1499343810"
-                    }
-                },
-                {
-                    "id": 147,
-                    "latitude": 31.4712413633535,
-                    "longitude": 74.2729054112679,
-                    "user_id": 12,
-                    "mark_type": 4,
-                    "distance": 0.003137209423510219,
-                    "created_at": "2017-07-04T08:12:44.385Z",
-                    "updated_at": "2017-07-04T08:12:44.385Z",
-                    "user_status": {
-                        "status_id": 46,
-                        "status_text": "Hello how are you??",
-                        "image_url": "/system/statuses/images/000/000/046/original/image.jpg?1499323881"
-                    }
-                },
-                {
-                    "id": 146,
-                    "latitude": 31.4646732,
-                    "longitude": 74.2710947,
-                    "user_id": 20,
-                    "mark_type": 1,
-                    "distance": 0.4693574517316555,
-                    "created_at": "2017-07-03T04:50:56.945Z",
-                    "updated_at": "2017-07-03T04:50:56.945Z",
-                    "user_status": {
-                        "status_id": 44,
-                        "status_text": "bbj",
-                        "image_url": "/system/statuses/images/000/000/044/original/tmp1498835772064.png?1498835476"
-                    }
-                },
-                {
-                    "id": 145,
-                    "latitude": 31.4713093,
-                    "longitude": 74.2729398,
-                    "user_id": 0,
-                    "mark_type": 1,
-                    "distance": 0.002527712876648135,
-                    "created_at": "2017-06-30T15:56:06.061Z",
-                    "updated_at": "2017-06-30T15:56:06.061Z",
-                    "user_status": {
-                        "status_id": "",
-                        "status_text": "",
-                        "image_url": ""
-                    }
-                }
-            ],
-            "stats": {
-                "Sad": 32,
-                "Happy": 47,
-                "Boring": 17,
-                "Angry": 29,
-                "": 1
-            }
-        },
-        "status": 200
+          "success": "true",
+          "message": "Location Saved",
+          "data": {
+              "alert": null,
+              "markers": [
+                  {
+                      "id": 127,
+                      "latitude": 0,
+                      "longitude": 0,
+                      "user_id": 15,
+                      "mark_type": 1,
+                      "distance": 5572.018830229658,
+                      "created_at": "21 days ago",
+                      "updated_at": "2017-06-15T12:07:30.618Z",
+                      "user_status": {
+                          "status_id": 47,
+                          "status_text": "",
+                          "image_url": "mehsoosment.vteamslabs.com/system/statuses/images/000/000/047/original/20170705_165548.jpg?1499343810"
+                      }
+                  },
+                  {
+                      "id": 126,
+                      "latitude": 0,
+                      "longitude": 0,
+                      "user_id": 15,
+                      "mark_type": 4,
+                      "distance": 5572.018830229658,
+                      "created_at": "21 days ago",
+                      "updated_at": "2017-06-20T06:08:09.585Z",
+                      "user_status": {
+                          "status_id": 47,
+                          "status_text": "",
+                          "image_url": "mehsoosment.vteamslabs.com/system/statuses/images/000/000/047/original/20170705_165548.jpg?1499343810"
+                      }
+                  }
+              ],
+              "stats": {
+                  "Happy": 3,
+                  "Angry": 3,
+                  "Boring": 1,
+                  "Sad": 1
+              }
+          },
+          "status": 200
       }
       EOS
       description <<-EOS
