@@ -20,7 +20,6 @@ class Status < ApplicationRecord
   after_create :set_expiry
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: ""
-  # validates_attachment_content_type :image, c
   do_not_validate_attachment_file_type :image
 
   def set_expiry

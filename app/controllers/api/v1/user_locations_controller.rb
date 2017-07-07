@@ -106,7 +106,7 @@ module Api
             if status
               status_hsh['status_id'] = status.id
               status_hsh['status_text'] = status.status_text
-              status_hsh['image_url'] = status.image.url
+              status_hsh['image_url'] = "mehsoosment.vteamslabs.com"+status.image.url
             else
               status_hsh['status_id'] = ""
               status_hsh['status_text'] = ""
@@ -115,13 +115,20 @@ module Api
             mark_feeling_hash = {}
             point = Geokit::LatLng.new(params[:latitude], params[:longitude])
             distance = markup.distance_to point
+            if markup.created_at < Date.today
+              created_at = (DateTime.now.to_i - markup.created_at.to_i)/(60*60*24)
+              created_at = (created_at == 1) ? ("#{created_at} day ago") : ("#{created_at} days ago")
+            else
+              created_at = markup.created_at
+            end
+
             mark_feeling_hash['id']             = markup.id
             mark_feeling_hash['latitude']       = markup.latitude
             mark_feeling_hash['longitude']      = markup.longitude
             mark_feeling_hash['user_id']        = markup.user_id
             mark_feeling_hash['mark_type']      = markup.mark_type
             mark_feeling_hash['distance']       = distance
-            mark_feeling_hash['created_at']     = markup.created_at
+            mark_feeling_hash['created_at']     = created_at
             mark_feeling_hash['updated_at']     = markup.updated_at
             mark_feeling_hash['user_status']    = status_hsh
             markers_array << mark_feeling_hash
