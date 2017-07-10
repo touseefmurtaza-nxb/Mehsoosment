@@ -86,8 +86,8 @@ module Api
             distance = markup.distance_to point
             if markup.created_at < Date.today
               created_at = (DateTime.now.to_i - markup.created_at.to_i)/(60*60*24)
-              created_at = minutes_in_words(created_at.day) + " ago"
-              # created_at = distance_of_time_in_words(Time.at(0), Time.at(created_at.day)) + " ago"
+              # created_at = minutes_in_words(created_at.day) + " ago"
+              created_at = helper.distance_of_time_in_words(Time.at(0), Time.at(created_at.day)) + " ago"
               # created_at = (created_at == 1) ? ("#{created_at} day ago") : ("#{created_at} days ago")
             else
               created_at = markup.created_at
