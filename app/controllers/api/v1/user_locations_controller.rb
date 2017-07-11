@@ -91,7 +91,7 @@ module Api
               # created_at = helper.distance_of_time_in_words(Time.at(0), Time.at(created_at.day)) + " ago"
               # created_at = (created_at == 1) ? ("#{created_at} day ago") : ("#{created_at} days ago")
             else
-              created_at = markup.created_at
+              created_at = markup.created_at.strftime("%I:%M %p")
             end
 
             mark_feeling_hash['id']             = markup.id

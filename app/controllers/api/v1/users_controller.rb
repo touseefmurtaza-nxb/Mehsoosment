@@ -128,42 +128,54 @@ module Api
           "status": 200
       }
       EOS
+      error <<-EOS
+      {"success":"false","message":{"email":["is invalid","can't be blank"],"f_name":["can't be blank"],"l_name":["can't be blank"]},"data":{},"status":400}
+      EOS
       description <<-EOS
         == Authentication required
          Authentication token has to be passed as part of the request. It can be passed as parameter in HTTP header(Authorization).
       EOS
       def update_user
-        @user = User.where(id: params[:user_id]).first
-        unless @user.nil?
-          if @user.update(user_params)
-            render :json => {
-                       success:"true",
-                       message:"User Setting Updated",
-                       data:
-                           {  id: @user.id,
-                              phone_number: @user.phone_number,
-                              f_name: @user.f_name,
-                              l_name: @user.l_name,
-                              email: @user.email,
-                              notification: @user.notification
-                           },
-                       status:200
-                      }
+        if params[:user_id].present?
+          @user = User.where(id: params[:user_id]).first
+          if @user.errors.messages.empty?
+            if @user.update(user_params)
+              render :json => {
+                         success:"true",
+                         message:"User Setting Updated",
+                         data:
+                             {  id: @user.id,
+                                phone_number: @user.phone_number,
+                                f_name: @user.f_name,
+                                l_name: @user.l_name,
+                                email: @user.email,
+                                notification: @user.notification
+                             },
+                         status:200
+                        }
+            else
+              render :json => {
+                         success:"false",
+                         message:@user.errors.messages,
+                         data:{},
+                         status:400
+                        }
+            end
           else
-            render :json => {
-                       success:"false",
-                       message:"",
-                       data:{},
-                       status:400
-                      }
+              render :json => {
+                  success:"false",
+                  message:@user.errors.messages,
+                  data:{},
+                  status:400
+              }
           end
         else
           render :json => {
-                     success:"false",
-                     message:"",
-                     data:{},
-                     status:404
-                    }
+              success:"false",
+              message:"User ID required",
+              data:{},
+              status:400
+          }
         end
       end
 

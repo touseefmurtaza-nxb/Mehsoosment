@@ -35,6 +35,10 @@ class User < ApplicationRecord
 
   # --------------------- validations ---------------------
   validates_presence_of :phone_number
+  validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/, on: :update
+  validates :email, presence: true, on: :update
+  validates :f_name, presence: true, on: :update
+  validates :l_name, presence: true, on: :update
 
   # --------------------- scope ---------------------
   scope :verified, -> { where(verified: true) }
