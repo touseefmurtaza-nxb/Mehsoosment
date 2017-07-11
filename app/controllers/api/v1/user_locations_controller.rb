@@ -10,6 +10,7 @@ module Api
       param :user_id, Integer, desc: 'User id, whose current location is marked', required: true
       param :south_west_point, String, desc: 'South West Point comma separated e.g. (31.469111,74.27178)', required: true
       param :north_east_point, String, desc: 'North East Point comma separated e.g. (31.469111,74.27178)', required: true
+      param :timezone, String, desc: 'TimeZone', required: true
       example <<-EOS
       {
           "success": "true",
@@ -91,7 +92,11 @@ module Api
               # created_at = helper.distance_of_time_in_words(Time.at(0), Time.at(created_at.day)) + " ago"
               # created_at = (created_at == 1) ? ("#{created_at} day ago") : ("#{created_at} days ago")
             else
-              created_at = markup.created_at.strftime("%I:%M %p")
+              if params[:timezone].present?
+                created_at = markup.created_at.in_time_zone(params[:timezone]).strftime("%I:%M %p")
+              else
+                created_at = markup.created_at.strftime("%I:%M %p")
+              end
             end
 
             mark_feeling_hash['id']             = markup.id

@@ -15,7 +15,11 @@ if @markups
         # created_at = distance_of_time_in_words(Time.at(0), Time.at(created_at.day)) + " ago"
         # created_at = (created_at == 1) ? ("#{created_at} day ago") : ("#{created_at} days ago")
       else
-        created_at = markup.created_at.strftime("%I:%M %p")
+        if @timezone
+          created_at = markup.created_at.in_time_zone(@timezone).strftime("%I:%M %p")
+        else
+          created_at = markup.created_at.strftime("%I:%M %p")
+        end
       end
       # json.(markup, :id, :latitude, :longitude, :user_id, :mark_type, :created_at, :updated_at, :distance, :bearing)
       json.id markup.id

@@ -8,6 +8,7 @@ module Api
       param :latitude, Float, desc: 'User current location latitude', required: true
       param :longitude, Float, desc: 'User current location longitude', required: true
       param :user_id, Integer, desc: 'User id, whose current location is marked', required: true
+      param :timezone, String, desc: 'TimeZone', required: true
       example <<-EOS
       {
           "success": "true",
@@ -73,6 +74,7 @@ module Api
       EOS
       def create
         @location = UserCameraLocation.new(latitude: params[:latitude], longitude: params[:longitude], user_id: params[:user_id])
+        @timezone = params[:timezone] if params[:timezone].present?
         if @location.save
           if @location.user.distance.nil?
             distance = 20.0
