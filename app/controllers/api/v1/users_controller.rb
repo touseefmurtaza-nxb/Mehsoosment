@@ -156,7 +156,7 @@ module Api
             else
               render :json => {
                          success:"false",
-                         message:@user.errors.messages,
+                         message:@user.errors.full_messages.first,
                          data:{},
                          status:400
                         }
@@ -164,7 +164,7 @@ module Api
           else
               render :json => {
                   success:"false",
-                  message:@user.errors.messages,
+                  message:@user.errors.full_messages.first,
                   data:{},
                   status:400
               }
