@@ -129,7 +129,7 @@ module Api
       }
       EOS
       error <<-EOS
-      {"success":"false","message":{"email":["is invalid","can't be blank"],"f_name":["can't be blank"],"l_name":["can't be blank"]},"data":{},"status":400}
+        {"success":"false","message":"First Name can't be blank","data":{},"status":400}
       EOS
       description <<-EOS
         == Authentication required
