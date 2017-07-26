@@ -3,6 +3,7 @@ json.message ""
 json.data do
   json.id @room.id
   json.current_page @current_page
+  json.next_page @next_page
   json.last_page @total_pages
   json.total_msgs @total_msgs_count
   json.created_at @room.created_at

@@ -408,6 +408,11 @@ module Api
         @total_msgs_count = @room.messages.count
         @total_pages = @room.messages.order("messages.created_at").paginate(:page => $current_page, :per_page => $per_page).total_pages
         @current_page = @room.messages.order("messages.created_at").paginate(:page => $current_page, :per_page => $per_page).current_page
+        if (@current_page >= @total_pages)
+          @next_page = 0
+        else
+          @next_page = @current_page + 1
+        end
         # render json: {success: true,message: "",data: room.as_json(methods: :room_messages),status: 200}
       end
 
