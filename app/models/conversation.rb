@@ -16,7 +16,6 @@ class Conversation < ApplicationRecord
   belongs_to :room
 
   class << self
-
     def create_chat_room(user,connection_id)
       conversation = user.conversations.create(connection_id: connection_id)
       room = conversation.create_room
@@ -29,12 +28,10 @@ class Conversation < ApplicationRecord
       conversation = user.conversations.find_by_connection_id(user_id)
       conversation || Conversation.create_chat_room(user,user_id)
     end
-
   end
 
   def create_reverse_connection(room)
     Conversation.create!(user_id: connection_id,connection_id: user_id,room_id: room.id)
   end
-
 
 end

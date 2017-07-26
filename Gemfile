@@ -37,6 +37,8 @@ gem 'simple_command'
 # Cron Jobs
 gem 'delayed_job_active_record'
 gem 'daemons'
+# Pagination
+gem 'will_paginate', '~> 3.1.0'
 
 gem 'redis', '~>3.2'
 

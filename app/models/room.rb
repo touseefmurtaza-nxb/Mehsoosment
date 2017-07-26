@@ -30,7 +30,7 @@ class Room < ApplicationRecord
   end
 
   def room_messages
-    messages.order("messages.created_at").as_json(include: [:sender, :receiver])
+    messages.order("messages.created_at").paginate(:page => $current_page, :per_page => $per_page).as_json(include: [:sender, :receiver])
   end
 
   class << self

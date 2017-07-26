@@ -286,6 +286,8 @@ module Api
       api :POST, '/v1/messages/room_messages', 'Room Messages'
       param :id, Integer, desc: 'Room id',required: true
       param :user_id, Integer, desc: 'User who tap on chat room',required: true
+      param :current_page, Integer, desc: 'Pagination: Current Page',required: true
+      param :per_page, Integer, desc: 'Pagination: Per Page Limit',required: true
 
       example <<-EOS
       {
@@ -795,6 +797,8 @@ module Api
         # room.messages.where(seen: false).update_all(seen: true)
         room.messages.where(seen: false, receiver_id: params[:user_id]).update_all(seen: true)
         # render json: {success: true,message: "",data: room.as_json(include: {messages: {include: [:sender,:receiver]}}),status: 200}
+        $per_page = params[:per_page]
+        $current_page = params[:current_page]
         render json: {success: true,message: "",data: room.as_json(methods: :room_messages),status: 200}
       end
 
