@@ -12,3 +12,4 @@ json.data do
     json.array! @room.messages.order("messages.created_at").paginate(:page => $current_page, :per_page => $per_page).as_json(include: [:sender, :receiver])
   end
 end
+json.status 200
