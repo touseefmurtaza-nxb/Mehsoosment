@@ -9,7 +9,7 @@ json.data do
   json.created_at @room.created_at
   json.updated_at @room.updated_at
   json.room_messages do
-    json.array! @room.messages.order("messages.created_at DESC").paginate(:page => $current_page, :per_page => $per_page).as_json(include: [:sender, :receiver])
+    json.array! @room.messages.order("messages.created_at DESC").paginate(:page => $current_page, :per_page => $per_page).as_json(include: [:sender, :receiver]).reverse
   end
 end
 json.status 200
